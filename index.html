@@ -36,10 +36,15 @@ a:hover::after {
                height: auto;
                /*width: 384;*/
           }
-          img{
+          /*img{
                max-width:100%;
                height:auto;
-          }
+          }*/
+          img.full-width {
+              width: 100vw; /* Make image take full viewport width */
+              height: auto; /* Maintain aspect ratio */
+              display: block; /* Remove any extra spacing */
+               }
           #title {
                background-color: #147a6d;
                color: white;
@@ -116,7 +121,7 @@ a:hover::after {
      </ul> -->
      
      <!---<video autoplay playsinline muted loop width="100%" height="100%" id="MultiLinkHeader"> <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> </video> -->
-     <h1><img src="wave_rainbow.png" alt="Wave Rainbow"></h1>
+     <h1><img src="wave_rainbow.png" alt="Wave Rainbow"> class="full-width"</h1>
      <h1 id="title"><img src="wave_rainbow.png" alt="Wave Rainbow"><br>Roman Aguilera: Robotics Consulting, Engineering, and Research</h1>
      <!--<h2>Robotics Consulting, Engineering, and Research</h2>-->
 
