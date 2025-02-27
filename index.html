@@ -36,26 +36,20 @@ a:hover::after {
                height: auto;
                /*width: 384;*/
           }
-          /*img{
-               max-width:100%;
-               height:auto;
-          }*/
-          /*img.full-width {*/
-              /*width: 100vw; /* Make image take full viewport width */
-              /*height: auto; /* Maintain aspect ratio */
-              /*display: block; /* Remove any extra spacing */ 
-              /* } */
-          .full-width-container {
-              margin: 0;
-              padding: 0;
-              width: 100vw;
-              overflow: hidden;
-          }
+          /* Ensure the full-width image ignores body padding */
+        .full-width-container {
+            position: relative; /* Ensures it stays in document flow */
+            width: 100vw;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+        }
 
-          .full-width-container img {
-              width: 100%;
-              display: block;
-          }
+        .full-width-container img {
+            width: 100vw;
+            height: auto;
+            display: block;
+        }
           #headerimage{
                background-color: #147a6d;
                color: white;
