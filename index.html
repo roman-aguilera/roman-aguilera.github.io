@@ -1,191 +1,235 @@
-
-
 <!DOCTYPE html>
 <html>
-     
 <head>
-     <style>
-          html, body {
-                 font-size:30px;
-  			  font-family: 'Trebuchet MS', sans-serif;
-                 margin: 0px;
-                 padding: 0px 100px;
-                 width: auto;
-               }
-          a {
-              position: relative;
-              color: #fefbd8;
-              text-decoration: none; /* Removes default underline */
-     }
+  <style>
+    html, body {
+      font-size: 30px;
+      font-family: 'Trebuchet MS', sans-serif;
+      margin: 0px;
+      padding: 0px 0px;
+      width: auto;
+      background-color: transparent;
+      color: white;
+      overflow-x: hidden;
+    }
 
-          a::after {
-              content: '';
-              position: absolute;
-              left: 50%;
-              bottom: -2px; /* Adjusts underline position */
-              width: 0;
-              height: 2px; /* Underline thickness */
-              background-color: lightgrey;
-              transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Smooth animation */
-}
+    a {
+      position: relative;
+      color: #fefbd8;
+      text-decoration: none; /* Removes default underline */
+    }
 
-a:hover::after {
-    width: 100%; /* Expands underline */
-    left: 0; /* Moves starting point to align properly */
-}
-          video {
-               max-width:100%;
-               height: auto;
-               /*width: 384;*/
-          }
-          /* Ensure the full-width image ignores body padding */
-        .full-width-container {
-            position: relative; /* Ensures it stays in document flow */
-            width: 100vw;
-            left: 50%;
-            transform: translateX(-50%);
-            overflow: hidden;
-            backgound-color: #1B1B1B;
-        }
+    a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px; /* Adjusts underline position */
+      width: 0;
+      height: 2px; /* Underline thickness */
+      background-color: lightgrey;
+      transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Smooth animation */
+    }
 
-        .full-width-container img {
-            width: 100vw;
-            height: auto;
-            display: block;
-            background-color: #1B1B1B;
-        }
-          #headerimage{
-               background-color: #1B1B1B;
-               color: white;
-               padding: 0px 0px;
-               margin:0 0px;
-               text-align: left;
-          }
-          #title, #portfolio, #about, #experience, #education, #aointerest {
-               background-color: #1B1B1B;
-               color: white;
-               padding: 40px 200px;
-               margin:0 -200px;
-               text-align: left;
-               }
-          #contact {
-               background-color: black;
-               color: white;
-               padding: 50px 200px;
-               text-align: left;
-               margin:0px -200px;
-               }
-          
-     @media (max-width: 768px) {
-            html, body {
-              /*padding: 0px 5px ;*/ /* Remove left and right padding on mobile */
-              margin: 0px;
-              padding: 0px 0px;
-              width: auto;
-                 }    
-          
-          /* Reduce padding slightly for mobile screens */
-            /*#title {
-              padding: 20px 10px; 
-               }*/
-     }
-          
-     </style>
-     
-     <link rel="preload" href="Mulitlink_Policy_2.mp4" as="video" type="video/mp4">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-     <title>Roman Aguilera: Robotics Consultant</title>
+    a:hover::after {
+      width: 100%; /* Expands underline */
+      left: 0; /* Moves starting point to align properly */
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .full-width-container {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      background-color: transparent;
+    }
+
+    .full-width-container img {
+      width: 100vw;
+      height: auto;
+      display: block;
+      background-color: transparent;
+    }
+
+    #headerimage {
+      background-color: transparent;
+      color: white;
+      padding: 0px 0px;
+      margin: 0 0px;
+      text-align: left;
+    }
+
+    /* Here is your translucent background for the main sections */
+    #title, #portfolio, #about, #experience, #education, #aointerest, #contact {
+      background-color: rgba(0, 0, 0, 0.3); /* subtle translucent black */
+      padding: 40px 200px;
+      margin: 0;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        margin: 0px;
+        padding: 0px 0px;
+        width: auto;
+      }
+    }
+
+    /* Canvas styles */
+    #animationCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1; /* behind everything */
+      opacity: 1;
+      pointer-events: none;
+      background-color: transparent;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Roman Aguilera: Robotics Consultant</title>
 </head>
 
-<body style="background-color:#101010;color:white;">
+<body>
 
-     <!-- navbar -->
-     <!--<ul>
-          <li><a href="https://roman-aguilera.github.io/research/">research</a></li>
-          <li><a href="https://roman-aguilera.github.io/research/">research</a></li>
-     </ul> -->
-     
-     <!---<video autoplay playsinline muted loop width="100%" height="100%" id="MultiLinkHeader"> <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> </video> -->
-     <div class="full-width-container"> <img src="wave_rainbow.jpeg" alt="Wave Rainbow" style="opacity:0.7"></div>
-     <h1 id="title">Roman Aguilera: Robotics Consulting, Engineering, and Research</h1>
-     <!--<h2>Robotics Consulting, Engineering, and Research</h2>-->
+  <!-- The animation canvas -->
+  <canvas id="animationCanvas"></canvas>
 
-     <!--<br>-->
+  <!-- navbar -->
+  <!--<ul>
+       <li><a href="https://roman-aguilera.github.io/research/">research</a></li>
+       <li><a href="https://roman-aguilera.github.io/research/">research</a></li>
+  </ul> -->
+  
+  <!--<video autoplay playsinline muted loop width="100%" height="100%" id="MultiLinkHeader"> <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> </video> -->
+  <!--<div class="full-width-container"> <img src="wave_rainbow.jpeg" alt="Wave Rainbow" style="opacity:0.7"></div>-->
+  <h1 id="title">Roman Aguilera: Robotics Consulting, Engineering, and Research</h1>
 
-     <div id="portfolio">
-     <h3> PORTFOLIO </h3>
-     <h4><p><a href="ResumeRomanAguilera_website.pdf">Resume</a>&emsp;|&emsp;<a href="https://www.linkedin.com/in/romanaguilera/">LinkedIn</a>&emsp;|&emsp;<a href="https://github.com/roman-aguilera">Github</a>&emsp;|&emsp;<a href="https://scholar.google.com/citations?user=DS1I_BUAAAAJ&hl=en">Google Scholar</a>&emsp;|&emsp;<a href="https://www.researchgate.net/profile/Roman-Aguilera">ResearchGate</a></p></h4>
-     <!--<h4><a href="https://www.linkedin.com/in/romanaguilera/" style="color: #fefbd8">LinkedIn</a></h4>
-     <h4><a href="https://github.com/roman-aguilera" style="color: #fefbd8" >Github</a></h4>
-     <h4><a href="https://scholar.google.com/citations?user=DS1I_BUAAAAJ&hl=en" style="color: #fefbd8">Google Scholar</a></h4>-->
-     </div>
-     <!--     
-     <br>
-     <br>
-     -->
+  <div id="portfolio">
+    <h3> PORTFOLIO </h3>
+    <h4><p><a href="ResumeRomanAguilera_website.pdf">Resume</a>&emsp;|&emsp;<a href="https://www.linkedin.com/in/romanaguilera/">LinkedIn</a>&emsp;|&emsp;<a href="https://github.com/roman-aguilera">Github</a>&emsp;|&emsp;<a href="https://scholar.google.com/citations?user=DS1I_BUAAAAJ&hl=en">Google Scholar</a>&emsp;|&emsp;<a href="https://www.researchgate.net/profile/Roman-Aguilera">ResearchGate</a></p></h4>
+  </div>
 
-     <div id="about">
-     <h3>ABOUT</h3>
-     <h4>Roman Aguilera is a robotics researcher and engineer with expertise in AI-driven robotic learning, control systems, and reinforcement learning. He holds a Master of Science in Computer Science from the University of Califonia, Santa Barbara and a Bachelor of Science in Electrical Engineering from the University of California, San Diego. He has worked on projects in multi-link robotic arm control, agricultural automation, and wearable health monitoring, with published research in Advanced Materials. He has been awarded the Google-CAHSI Dissertation Fellowship, NSF Bridge to Doctorate Fellowship, and NSF IGERT in Network Science Fellowship.</h4>
-     </div>
-     <!--
-     <br>
-     <br>
-     -->
-     <div id="experience">
-     <br>
-     <br>
-     <h3>EXPERIENCE</h3>
-     <h4><br><a href="https://tinyurl.com/MultilinkArm-Dimensionality">UCSB Dynamic Robotics Lab:<br>Multilink Arm / Dimensionality Research Project</a></h4>     
-     <h4><p>Roman was an AI Robotics Researcher at the UCSB Dynamic Robotics Laboratory for 5 years, where he investigated fundamental AI algorithm performance on robot control tasks. He created custom simulation environments of highly redundant N-link robot arms using Open AI’s Gym API in order to evaluate control algorithm performance as it was affected by (i) the number parts on a robot, (ii) the complexity of a robot’s environment, and (iii) the complexity of a robot’s task. He ultimately discovered evidence to suggest that the Proximal Policy Optimization algorithm learns motions rather than making sense of end goal points. His work and contributions were awarded the Google-CAHSI Dissertation Fellowship in 2023.</p></h4> 
-     <!--<div style="text-align: center;">--><video id="multilinkvid" loading="lazy" playsinline autoplay muted loop name="Multilink"> <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> </video><!--</div>-->
-     <h4><br></h4>
-     <h4><a href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">TRIC Robotics:<br>Strawberry Imaging, GPS Mapping, and Crop Counting</a></h4>
-     <h4><p>Roman was a Field Data Science Intern at TRIC Robotics where he contributed to an existing vision system and automated the collection of plant data. He modified the electrical wiring of their vision system in order to mount it onto TRIC’s Luna Robot. He also automated the implementation of image recognition algorithms to detect center points of strawberry plants and record the GPS position of plant center points during plant treatment.</p></h4>
-     <!--<div style="text-align: center;">--><video loading="lazy" playsinline autoplay muted loop name="strawberry imaging"> <source src="TRIC_Strawberry_Imaging_3.mp4"> </video><!--</div>-->
-     <h4><br></h4>
-     <h4><a href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">Neural Interaction Lab:<br>Mobile Wireless Health Monitoring: Implementation of a Miniaturized Programmable System-on-a-Chip</a></h4>
-     <h4><p>Roman was an Embedded Systems Researcher at the UCSD Neural Interaction Laboratory for 2 years. He worked with the Programmable-System-on-Chip 4 BLE, leveraging the onboard modules such as the analog-to-digital converter, operational amplifier, and Bluetooth-Low-Energy transmitter to create a prototype device that transmits epidermal sensor information to a smartphone application and computer. He programmed the microcontroller in C, wired the electrical components, and also redesigned the electrical circuits. His work contributed to a larger project that was published in Advanced Materials 2017.</p></h4>
-     <!--<div style="text-align: center;">--><video loading="lazy" playsinline autoplay muted loop name="PSOC"> <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4"> </video><!--</div>-->
-     <h4><br></h4>
-     </div>
-     <!--
-     <br>
-     <br>
-     -->
+  <div id="about">
+    <h3>ABOUT</h3>
+    <h4>Roman Aguilera is a robotics researcher and engineer with expertise in AI-driven robotic learning, control systems, and reinforcement learning. He holds a Master of Science in Computer Science from the University of Califonia, Santa Barbara and a Bachelor of Science in Electrical Engineering from the University of California, San Diego. He has worked on projects in multi-link robotic arm control, agricultural automation, and wearable health monitoring, with published research in Advanced Materials. He has been awarded the Google-CAHSI Dissertation Fellowship, NSF Bridge to Doctorate Fellowship, and NSF IGERT in Network Science Fellowship.</h4>
+  </div>
 
-     <div id="education">
-     <h3>EDUCATION</h3>
-     <h4><p>M.S. Computer Science (2024)<br>Specialized in Robotics and Machine Learning<br>University of California, Santa Barbara </p></h4>
-     <h4><p>B.S. Electrical Engineering (2017)<br>Specialized in Machine Learning and Controls<br>University of California, San Diego </p></h4>
-     </div>
+  <div id="experience">
+    <br><br>
+    <h3>EXPERIENCE</h3>
+    <h4><br><a href="https://tinyurl.com/MultilinkArm-Dimensionality">UCSB Dynamic Robotics Lab:<br>Multilink Arm / Dimensionality Research Project</a></h4>     
+    <h4><p>Roman was an AI Robotics Researcher at the UCSB Dynamic Robotics Laboratory for 5 years, where he investigated fundamental AI algorithm performance on robot control tasks. He created custom simulation environments of highly redundant N-link robot arms using Open AI’s Gym API in order to evaluate control algorithm performance as it was affected by (i) the number parts on a robot, (ii) the complexity of a robot’s environment, and (iii) the complexity of a robot’s task. He ultimately discovered evidence to suggest that the Proximal Policy Optimization algorithm learns motions rather than making sense of end goal points. His work and contributions were awarded the Google-CAHSI Dissertation Fellowship in 2023.</p></h4> 
+    <video id="multilinkvid" loading="lazy" playsinline autoplay muted loop name="Multilink"> 
+      <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> 
+    </video>
+    <h4><br></h4>
+    <h4><a href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">TRIC Robotics:<br>Strawberry Imaging, GPS Mapping, and Crop Counting</a></h4>
+    <h4><p>Roman was a Field Data Science Intern at TRIC Robotics where he contributed to an existing vision system and automated the collection of plant data. He modified the electrical wiring of their vision system in order to mount it onto TRIC’s Luna Robot. He also automated the implementation of image recognition algorithms to detect center points of strawberry plants and record the GPS position of plant center points during plant treatment.</p></h4>
+    <video loading="lazy" playsinline autoplay muted loop name="strawberry imaging"> 
+      <source src="TRIC_Strawberry_Imaging_3.mp4"> 
+    </video>
+    <h4><br></h4>
+    <h4><a href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">Neural Interaction Lab:<br>Mobile Wireless Health Monitoring: Implementation of a Miniaturized Programmable System-on-a-Chip</a></h4>
+    <h4><p>Roman was an Embedded Systems Researcher at the UCSD Neural Interaction Laboratory for 2 years. He worked with the Programmable-System-on-Chip 4 BLE, leveraging the onboard modules such as the analog-to-digital converter, operational amplifier, and Bluetooth-Low-Energy transmitter to create a prototype device that transmits epidermal sensor information to a smartphone application and computer. He programmed the microcontroller in C, wired the electrical components, and also redesigned the electrical circuits. His work contributed to a larger project that was published in Advanced Materials 2017.</p></h4>
+    <video loading="lazy" playsinline autoplay muted loop name="PSOC"> 
+      <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4"> 
+    </video>
+    <h4><br></h4>
+  </div>
 
-     <!--
-     <br>
-     <br>
-     -->
+  <div id="education">
+    <h3>EDUCATION</h3>
+    <h4><p>M.S. Computer Science (2024)<br>Specialized in Robotics and Machine Learning<br>University of California, Santa Barbara </p></h4>
+    <h4><p>B.S. Electrical Engineering (2017)<br>Specialized in Machine Learning and Controls<br>University of California, San Diego </p></h4>
+  </div>
 
-     <div id="aointerest">
-     <h3>AREAS OF INTEREST </h3>
-     <h4><p>Robotic Learning, Manipulation, Locomotion, Humanoids, Real-Time Control, Aggressive Control, Motion Control, Hybrid Dynamical Systems, Microcontrollers, Embedded Systems, Artificial Intelligence, Operator Theory </p></h4>
-     </div>
+  <div id="aointerest">
+    <h3>AREAS OF INTEREST </h3>
+    <h4><p>Robotic Learning, Manipulation, Locomotion, Humanoids, Real-Time Control, Aggressive Control, Motion Control, Hybrid Dynamical Systems, Microcontrollers, Embedded Systems, Artificial Intelligence, Operator Theory </p></h4>
+  </div>
 
-     <!--
-     <br>
-     <br>
-     -->
-     
-     <div id="contact">
-     <h3> CONTACT</h3>
-     <h4><a href="mailto:roman.aguilera.arevalo@gmail.com">roman.aguilera.arevalo@gmail.com</a></h4>
-     <h4><a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a></h4>
-     
-     <br>
-     
-     <img src="headshot.jpg" alt="Headshot" width="230" height="230">
-        
-     <p>Copyright © Roman Aguilera 2025</p>
-     </p> 
-     </div>
+  <div id="contact">
+    <h3> CONTACT</h3>
+    <h4><a href="mailto:roman.aguilera.arevalo@gmail.com">roman.aguilera.arevalo@gmail.com</a></h4>
+    <h4><a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a></h4>
+    <br>
+    <img src="headshot.jpg" alt="Headshot" width="230" height="230">
+    <p>Copyright © Roman Aguilera 2025</p>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('animationCanvas');
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    class Thread {
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+      }
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+      }
+    }
+
+    const threads = [];
+    const count = 50;
+
+    for (let i = 0; i < count; i++) {
+      threads.push(new Thread());
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+      threads.forEach(thread => {
+        thread.move();
+        ctx.beginPath();
+        ctx.arc(thread.x, thread.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      for (let i = 0; i < count; i++) {
+        for (let j = i + 1; j < count; j++) {
+          const dx = threads[i].x - threads[j].x;
+          const dy = threads[i].y - threads[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100})`;
+            ctx.beginPath();
+            ctx.moveTo(threads[i].x, threads[i].y);
+            ctx.lineTo(threads[j].x, threads[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    });
+  </script>
 </body>
 </html>
