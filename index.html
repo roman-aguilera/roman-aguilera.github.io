@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Roman Aguilera: Robotics Researcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="0ABFBC2CA89DBC217477212852A1C5FF" />
   <style>
     html, body {
       font-size: 30px;
       font-family: 'Trebuchet MS', sans-serif;
-      margin: 0px;
-      padding: 0px 0px;
+      margin: 0;
+      padding: 0;
       width: auto;
       background-color: transparent;
       color: white;
@@ -14,30 +18,30 @@
     }
 
     img {
-        border-radius: 10px;
-        margin-top: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
     }
-    
+
     a {
       position: relative;
       color: #fefbd8;
-      text-decoration: none; /* Removes default underline */
+      text-decoration: none;
     }
 
     a::after {
       content: '';
       position: absolute;
       left: 50%;
-      bottom: -2px; /* Adjusts underline position */
+      bottom: -2px;
       width: 0;
-      height: 2px; /* Underline thickness */
+      height: 2px;
       background-color: lightgrey;
-      transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Smooth animation */
+      transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     }
 
     a:hover::after {
-      width: 100%; /* Expands underline */
-      left: 0; /* Moves starting point to align properly */
+      width: 100%;
+      left: 0;
     }
 
     video {
@@ -64,32 +68,29 @@
     #headerimage {
       background-color: transparent;
       color: white;
-      padding: 0px 0px;
-      margin: 0 0px;
+      padding: 0;
+      margin: 0;
       text-align: left;
     }
 
-    /* Here is your translucent background for the main sections */
     #title, #book, #portfolio, #about, #experience, #education, #aointerest, #contact {
-      background-color: rgba(0, 0, 0, 0.3); /* subtle translucent black */
+      background-color: rgba(0, 0, 0, 0.3);
       padding: 40px 200px;
       margin: 0;
       text-align: left;
     }
 
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
       html, body {
-        margin: 0px;
-        padding: 0px 0px;
-        width: auto;
+        margin: 0;
+        padding: 0;
         background-color: black;
         font-size: 90%;
       }
-      
       #title, #book, #portfolio, #about, #experience, #education, #aointerest, #contact {
-        padding: 20px 20px;  /* Reduce padding on mobile */
+        padding: 20px;
       }
-    } 
+    }
 
     /* Canvas styles */
     #animationCanvas {
@@ -98,155 +99,144 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: -1; /* behind everything */
-      opacity: 1;
+      z-index: -1;
       pointer-events: none;
-      background-color: transparent;
+      background-color: black;
     }
   </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="msvalidate.01" content="0ABFBC2CA89DBC217477212852A1C5FF" />
-  <title>Roman Aguilera: Robotics Researcher</title>
 </head>
 
 <body>
-
-  <!-- The animation canvas -->
+  <!-- Animated background -->
   <canvas id="animationCanvas"></canvas>
 
-  <!-- navbar -->
-  <!--<ul>
-       <li><a href="https://roman-aguilera.github.io/research/">research</a></li>
-       <li><a href="https://roman-aguilera.github.io/research/">research</a></li>
-  </ul> -->
-  
-  <!--<video autoplay playsinline muted loop width="100%" height="100%" id="MultiLinkHeader"> <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> </video> -->
-  <!--<div class="full-width-container"> <img src="wave_rainbow.jpeg" alt="Wave Rainbow" style="opacity:0.7"></div>-->
   <h1 id="title">Roman Aguilera<p></p>Robotics Consulting, Engineering, and Research</h1>
 
   <div id="book">
-  <h4><p>&emsp;<a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a>&emsp;</p></h4>
+    <h4><p>&emsp;<a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a>&emsp;</p></h4>
   </div>
-  
+
   <div id="portfolio">
-    <h3> PORTFOLIO </h3>
-    <h4><p><a href="ResumeRomanAguilera_website.pdf">Resume</a>&emsp;|&emsp;<a href="https://www.linkedin.com/in/romanaguilera/">LinkedIn</a>&emsp;|&emsp;<a href="https://github.com/roman-aguilera">Github</a>&emsp;|&emsp;<a href="https://scholar.google.com/citations?user=DS1I_BUAAAAJ&hl=en">Google Scholar</a>&emsp;|&emsp;<a href="https://www.researchgate.net/profile/Roman-Aguilera">ResearchGate</a>&emsp;|&emsp;<a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a></p></h4>
+    <h3>PORTFOLIO</h3>
+    <h4>
+      <p>
+        <a href="ResumeRomanAguilera_website.pdf">Resume</a>&emsp;|&emsp;
+        <a href="https://www.linkedin.com/in/romanaguilera/">LinkedIn</a>&emsp;|&emsp;
+        <a href="https://github.com/roman-aguilera">Github</a>&emsp;|&emsp;
+        <a href="https://scholar.google.com/citations?user=DS1I_BUAAAAJ&hl=en">Google Scholar</a>&emsp;|&emsp;
+        <a href="https://www.researchgate.net/profile/Roman-Aguilera">ResearchGate</a>&emsp;|&emsp;
+        <a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a>
+      </p>
+    </h4>
   </div>
 
   <div id="about">
     <h3>ABOUT</h3>
-    <h4>Roman Aguilera is a robotics researcher and engineer with expertise in AI-driven robotic learning, control systems, and reinforcement learning. He completed six years of a Ph.D. program in Computer Science at the University of California, Santa Barbara, passed all qualifying exams, and advanced to candidacy (ABD – All But Dissertation), before withdrawing due to extenuating circumstances. He holds a Master of Science in Computer Science from the University of Califonia, Santa Barbara and a Bachelor of Science in Electrical Engineering from the University of California, San Diego. He has worked on projects in multi-link robotic arm control, agricultural automation, and wearable health monitoring, with published research in Advanced Materials. He has been awarded the Google-CAHSI Dissertation Fellowship, NSF Bridge to Doctorate Fellowship, and NSF IGERT in Network Science Fellowship.</h4>
+    <h4>Roman Aguilera is a robotics researcher and engineer with expertise in AI-driven robotic learning, control systems, and reinforcement learning. He completed six years of a Ph.D. program in Computer Science at the University of California, Santa Barbara, passed all qualifying exams, and advanced to candidacy (ABD – All But Dissertation), before withdrawing due to extenuating circumstances. He holds a Master of Science in Computer Science from the University of California, Santa Barbara, and a Bachelor of Science in Electrical Engineering from the University of California, San Diego. His work includes research in robotic arm control, agricultural automation, and wearable health monitoring, with published research in *Advanced Materials*. He has been awarded the Google-CAHSI Dissertation Fellowship, NSF Bridge to Doctorate Fellowship, and NSF IGERT Fellowship.</h4>
   </div>
 
   <div id="experience">
-    <br><br>
     <h3>EXPERIENCE</h3>
-    <h4><br><a href="https://tinyurl.com/MultilinkArm-Dimensionality">UCSB Dynamic Robotics Lab:<br>Multilink Arm / Dimensionality Research Project</a></h4>     
-    <h4><p>Roman was an AI Robotics Researcher and Egnineer at the UCSB Dynamic Robotics Laboratory for 5 years, where he investigated fundamental AI algorithm performance on robot control tasks. He created custom simulation environments of highly redundant N-link robot arms using Open AI’s Gym API in order to evaluate control algorithm performance as it was affected by (i) the number parts on a robot, (ii) the complexity of a robot’s environment, and (iii) the complexity of a robot’s task. He ultimately discovered evidence to suggest that the Proximal Policy Optimization algorithm learns motions rather than making sense of end goal points. His work and contributions were awarded the Google-CAHSI Dissertation Fellowship in 2023.</p></h4> 
-    <video id="multilinkvid" loading="lazy" playsinline autoplay muted loop name="Multilink"> 
-      <source src="Mulitlink_Policy_2.mp4" type="video/mp4"> 
+    <h4><a href="https://tinyurl.com/MultilinkArm-Dimensionality">UCSB Dynamic Robotics Lab: Multilink Arm / Dimensionality Research Project</a></h4>
+    <h4><p>Roman was an AI Robotics Researcher and Engineer at the UCSB Dynamic Robotics Lab for 5 years, studying AI algorithm performance in high-DOF robot control tasks using OpenAI Gym simulations.</p></h4>
+    <video autoplay playsinline muted loop>
+      <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
     </video>
-    <h4><br></h4>
-    <h4><a href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">Confidential Robotics Startup:<br>Strawberry Imaging, GPS Mapping, and Crop Counting</a></h4>
-    <h4><p>Roman was an Computer Vision Engineer at a Confidential Robotics Startup where he contributed to an existing vision system and automated the collection of plant data. He modified the electrical wiring of their vision system in order to mount it onto a field robot's 200kW power generator. He also automated the implementation of image recognition algorithms to detect center points of strawberry plants and record the GPS position of plant center points during plant treatment.</p></h4>
-    <video loading="lazy" playsinline autoplay muted loop name="strawberry imaging"> 
-      <source src="TRIC_Strawberry_Imaging_3.mp4"> 
+
+    <h4><a href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">Confidential Robotics Startup: Strawberry Imaging, GPS Mapping, and Crop Counting</a></h4>
+    <h4><p>Roman contributed to a vision system for field robots, automating strawberry plant detection, GPS mapping, and field data collection.</p></h4>
+    <video autoplay playsinline muted loop>
+      <source src="TRIC_Strawberry_Imaging_3.mp4" type="video/mp4">
     </video>
-    <h4><br></h4>
-    <h4><a href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">Neural Interaction Lab:<br>Mobile Wireless Health Monitoring: Implementation of a Miniaturized Programmable System-on-a-Chip</a></h4>
-    <h4><p>Roman was an Embedded Systems Researcher and Engineer at the UCSD Neural Interaction Laboratory for 2 years. He worked with the Programmable-System-on-Chip 4 BLE, leveraging the onboard modules such as the analog-to-digital converter, operational amplifier, and Bluetooth-Low-Energy transmitter to create a prototype device that transmits epidermal sensor information to a smartphone application and computer. He programmed the microcontroller in C, wired the electrical components, and also redesigned the electrical circuits. His work contributed to a larger project that was published in Advanced Materials 2017.</p></h4>
-    <video loading="lazy" playsinline autoplay muted loop name="PSOC"> 
-      <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4"> 
+
+    <h4><a href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">Neural Interaction Lab: Mobile Wireless Health Monitoring</a></h4>
+    <h4><p>Roman developed embedded firmware for a BLE-enabled health monitoring device using a Programmable System-on-Chip, contributing to research published in *Advanced Materials (2017).*</p></h4>
+    <video autoplay playsinline muted loop>
+      <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4" type="video/mp4">
     </video>
-    <h4><br></h4>
   </div>
 
   <div id="education">
     <h3>EDUCATION</h3>
-    <h4><p>Ph.D. Computer Science (Incomplete, All But Dissertation) (2018-2024)<br>Specialized in Robotics and Machine Learning<br>University of California, Santa Barbara </p></h4>
-    <h4><p>M.S. Computer Science (2024)<br>Specialized in Robotics and Machine Learning<br>University of California, Santa Barbara </p></h4>
-    <h4><p>B.S. Electrical Engineering (2017)<br>Specialized in Machine Learning and Controls<br>University of California, San Diego </p></h4>
+    <h4><p>Ph.D. Computer Science (ABD, 2018–2024) — UC Santa Barbara<br>M.S. Computer Science (2024) — UC Santa Barbara<br>B.S. Electrical Engineering (2017) — UC San Diego</p></h4>
   </div>
 
   <div id="aointerest">
-    <h3>AREAS OF INTEREST </h3>
-    <h4><p>Robotic Learning, Manipulation, Locomotion, Humanoids, Real-Time Control, Aggressive Control, Motion Control, Hybrid Dynamical Systems, Microcontrollers, Embedded Systems, Artificial Intelligence, Operator Theory </p></h4>
+    <h3>AREAS OF INTEREST</h3>
+    <h4><p>Robotic Learning, Manipulation, Locomotion, Humanoids, Real-Time Control, Embedded Systems, AI, Operator Theory</p></h4>
   </div>
 
   <div id="contact">
-    <h3> CONTACT</h3>
+    <h3>CONTACT</h3>
     <h4><a href="mailto:roman.aguilera.arevalo@gmail.com">roman.aguilera.arevalo@gmail.com</a></h4>
     <h4><a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a></h4>
-    <br>
     <img src="headshot.jpg" alt="Headshot" width="230" height="230">
-    <p>Copyright © Roman Aguilera 2025</p>
+    <p>© 2025 Roman Aguilera</p>
   </div>
 
+  <!-- Background animation script -->
   <script>
     const canvas = document.getElementById('animationCanvas');
     const ctx = canvas.getContext('2d');
-    let w = window.innerWidth;
-    let h = window.innerHeight;
-    canvas.width = w;
-    canvas.height = h;
 
-    class Thread {
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const NUM_POINTS = 120;
+    const MAX_DIST = 150;
+
+    class Point {
       constructor() {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
       }
       move() {
         this.x += this.vx;
         this.y += this.vy;
-        if (this.x < 0 || this.x > w) this.vx *= -1;
-        if (this.y < 0 || this.y > h) this.vy *= -1;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
       }
     }
 
-    const threads = [];
-    const count = 150;
-
-    for (let i = 0; i < count; i++) {
-      threads.push(new Thread());
-    }
+    const points = Array.from({ length: NUM_POINTS }, () => new Point());
 
     function draw() {
-      ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-      threads.forEach(thread => {
-        thread.move();
-        ctx.beginPath();
-        ctx.arc(thread.x, thread.y, 2, 0, Math.PI * 2);
-        ctx.fill();
-      });
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < count; i++) {
-        for (let j = i + 1; j < count; j++) {
-          const dx = threads[i].x - threads[j].x;
-          const dy = threads[i].y - threads[j].y;
+      ctx.fillStyle = 'white';
+      for (const p of points) {
+        p.move();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      for (let i = 0; i < NUM_POINTS; i++) {
+        for (let j = i + 1; j < NUM_POINTS; j++) {
+          const dx = points[i].x - points[j].x;
+          const dy = points[i].y - points[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100})`;
+          if (dist < MAX_DIST) {
+            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / MAX_DIST})`;
             ctx.beginPath();
-            ctx.moveTo(threads[i].x, threads[i].y);
-            ctx.lineTo(threads[j].x, threads[j].y);
+            ctx.moveTo(points[i].x, points[i].y);
+            ctx.lineTo(points[j].x, points[j].y);
             ctx.stroke();
           }
         }
       }
+
       requestAnimationFrame(draw);
     }
 
     draw();
-
-    window.addEventListener('resize', () => {
-      w = window.innerWidth;
-      h = window.innerHeight;
-      canvas.width = w;
-      canvas.height = h;
-    });
   </script>
 </body>
 </html>
