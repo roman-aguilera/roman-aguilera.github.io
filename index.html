@@ -213,7 +213,7 @@
         navigator.clipboard.writeText(email).then(() => {
           const label = document.getElementById("copyEmailLabel");
           const original = label.innerText;
-          label.innerText = "Copied to Clipboeard! ✅";
+          label.innerText = "Copied to Clipboard";
           setTimeout(() => label.innerText = original, 2000);
         });
       }
