@@ -198,11 +198,26 @@
     <h4><p>Robotic Learning, Manipulation, Locomotion, Humanoids, Real-Time Control, Embedded Systems, AI, Operator Theory</p></h4>
   </div>
 
+  <!--CONTACT SECTION-->
   <div id="contact">
     <h3>CONTACT</h3>
-    <h4><a href="mailto:roman.aguilera.arevalo@gmail.com">Email</a></h4>
+    <h4> <span onclick="copyEmail()" style="cursor: pointer; color: #fefbd8; text-decoration: underline;" id="copyEmailLabel"">Email</a></h4>
+    <!--<h4><a href="mailto:roman.aguilera.arevalo@gmail.com">Email</a></h4>-->
     <h4><a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a></h4>
     <img src="headshot.jpg" alt="Headshot" width="230" height="230">
+
+    <script>
+      function copyEmail() {
+        const email = "roman.aguilera.arevalo@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+          const label = document.getElementById("copyEmailLabel");
+          const original = label.innerText;
+          label.innerText = "Copied! ✅";
+          setTimeout(() => label.innerText = original, 2000);
+        });
+      }
+    </script>
+    
     <p>© 2025 Roman Aguilera</p>
   </div>
 <!-- Backgound animation script
