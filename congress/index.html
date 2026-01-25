@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roman Aguilera: Robotics Researcher</title>
+	
+  <!-- Open Graph: Controls preview on GitHub, Discord, LinkedIn, etc. -->
+  <meta property="og:title" content="Roman Aguilera — Robotics Researcher and Engineer">
+  <meta property="og:description" content="Robotics consulting, engineering, and AI-driven research. Portfolio, experience, and projects.">
+  <!-- <meta property="og:image" content="https://roman-aguilera.github.io/headshot.jpg"> -->
+  <meta property="og:url" content="https://roman-aguilera.github.io/">
+  <meta property="og:type" content="website">
 
+  <!-- Twitter Card (optional but recommended) -->
+  <!-- <meta name="twitter:card" content="summary_large_image"> -->
+  <meta name="twitter:title" content="Roman Aguilera — Robotics Researcher">
+  <meta name="twitter:description" content="Robotics consulting, engineering, and AI-driven research.">
+  <!-- <meta name="twitter:image" content="https://roman-aguilera.github.io/headshot.jpg"> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="0ABFBC2CA89DBC217477212852A1C5FF" />
+  <style>
+    html, body {
+      font-size: 20px;
+      font-family: 'Trebuchet MS', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      background-color: transparent;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    img {
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    a {
+      position: relative;
+      color: #fefbd8;
+      text-decoration: none;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: lightgrey;
+      transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
+
+    a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .full-width-container {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      background-color: transparent;
+    }
+
+    .full-width-container img {
+      width: 100vw;
+      height: auto;
+      display: block;
+      background-color: transparent;
+    }
+
+    #headerimage {
+      background-color: transparent;
+      color: white;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    #title, #book, #portfolio, #about, #experience, #projects, #education, #aointerest, #contact {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 40px 200px;
+      margin: 0;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        font-size: 90%;
+      }
+      #title, #book, #portfolio, #about, #experience, #projects, #education, #aointerest, #contact {
+        padding: 20px;
+      }
+    }
+
+    /* Canvas styles */
+    #animationCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background-color: rgba(7, 14, 62, 0.8) ; 
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated background -->
+  <canvas id="animationCanvas"></canvas>
+
+  <h1 id="title">Roman Aguilera<p></p>Robotics Consulting, Engineering, and Research</h1>
+
+  <!--
+  <div id="book">
+    <h4><p>&emsp;<a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a>&emsp;</p></h4>
+  </div>
+  -->
+
+  <div id="portfolio">
+    <h3>PORTFOLIO</h3>
+    <h4>
+      <p>
+        <a href="CV - Roman Aguilera.pdf">Resume</a>&emsp;|&emsp;
+        <a href="https://www.linkedin.com/in/romanaguilera/">LinkedIn</a>&emsp;|&emsp;
+        <a href="https://github.com/roman-aguilera">Github</a>&emsp;|&emsp;
+        <a href="https://scholar.google.com/citations?user=DS1I_BUAAAAJ&hl=en">Google Scholar</a>&emsp;|&emsp;
+        <a href="https://www.researchgate.net/profile/Roman-Aguilera">ResearchGate</a>&emsp; <!--|&emsp;
+        <a href="https://calendly.com/roman-aguilera-arevalo">Book an Appointment</a> -->
+      </p>
+    </h4>
+  </div>
+
+  <div id="about">
+    <h3>ABOUT</h3>
+    <h4>Roman Aguilera is a robotics researcher and engineer with expertise in AI-driven robotic learning, control systems, and reinforcement learning. He is currently the AI and Machine Learning Engineering Lead at PivotalVC. He holds a Master of Science in Computer Science from the University of California, Santa Barbara, and a Bachelor of Science in Electrical Engineering from the University of California, San Diego. His work includes research in robotic arm control, agricultural automation, and wearable health monitoring, with published research in Advanced Materials. </h4>
+  </div>
+
+  <div id="experience">
+    <h3>EXPERIENCE</h3>
+    <!-- PivotalVC-->
+    <h4><a href="https://pivotalvc.com/">PivotalVC: AI and Machine Learning Web Applications</a></h4>
+    <h4><p>Roman is the Artificial Intelligence and Machine Learning Engineering Lead at PivotalVC, where he oversees the development of AI- and ML-powered web applications, leveraging cutting-edge models to build enterprise-grade solutions.</p></h4>
+
+    <!--UCSB RoboLab-->
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; align-items: center;">
+      <div style="flex: 0 0 300px;">
+        <video autoplay playsinline muted loop>
+          <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div style="flex: 1; min-width: 250px;">
+        <h4><a href="https://tinyurl.com/MultilinkArm-Dimensionality">UCSB Dynamic Robotics Lab: Multilink Arm / Dimensionality Research Project</a></h4>
+        <h4><p>Roman was an AI Robotics Researcher and Egnineer at the UCSB Dynamic Robotics Laboratory for 5 years, where he investigated fundamental AI algorithm performance on robot control tasks. He created custom simulation environments of highly redundant N-link robot arms using Open AI’s Gym API in order to evaluate control algorithm performance as it was affected by (i) the number parts on a robot, (ii) the complexity of a robot’s environment, and (iii) the complexity of a robot’s task. He ultimately discovered evidence to suggest that the Proximal Policy Optimization algorithm learns motions rather than making sense of end goal points. His work and contributions were awarded the Google-CAHSI Dissertation Fellowship in 2023.</p></h4>
+      </div>
+    </div>
+
+    <!--CV Engineer-->
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; align-items: center;">
+      <div style="flex: 0 0 300px;">
+        <video autoplay playsinline muted loop>
+          <source src="TRIC_Strawberry_Imaging_3.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div style="flex: 1; min-width: 250px;">
+        <h4><a href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">Confidential Robotics Startup: Strawberry Imaging, GPS Mapping, and Crop Counting</a></h4>
+        <h4><p>Roman was an Computer Vision Engineer at a confidential robotics startup where he contributed to an existing vision system and automated the collection of plant data. He modified the electrical wiring of their vision system in order to mount it onto their field tractor robot. He also automated the implementation of image recognition algorithms to detect center points of strawberry plants and record the GPS position of plant center points during plant treatment.</p></h4>
+      </div>
+    </div>
+
+    <!--UCSD NIL-->
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; align-items: center;">
+      <div style="flex: 0 0 300px;">
+        <video autoplay playsinline muted loop>
+          <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div style="flex: 1; min-width: 250px;">
+        <h4><a href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">Neural Interaction Lab: Mobile Wireless Health Monitoring</a></h4>
+        <h4><p>Roman was an Embedded Systems Researcher and Engineer at the UCSD Neural Interaction Laboratory for 2 years. He worked with the Programmable-System-on-Chip 4 BLE, leveraging the onboard modules such as the analog-to-digital converter, operational amplifier, and Bluetooth-Low-Energy transmitter to create a prototype device that transmits epidermal sensor information to a smartphone application and computer. He programmed the microcontroller in C, wired the electrical components, and also redesigned the electrical circuits. His work contributed to a larger project that was published in Advanced Materials 2017.</p></h4>
+      </div>
+    </div>
+        
+  </div>
+
+  <div id="projects">
+    <h3>PROJECTS</h3>
+    <h4><a href="https://github.com/roman-aguilera/HighDimensionality_ValueIteration_BarycentricInterpolation"> UCSB Dynamic Robotics Lab: "High Dimemsionality, Value Iteration, and Barycentric Interpolation in Robotic Control"</a></h4>
+    <h4><p>This project addresses the challenge of designing controllers for high-dimensional robotic systems while ensuring computational tractability. Discretizing the robot’s state space (e.g., a 3-link robotic arm) leads to an exponential increase in possible states, making brute-force methods impractical due to memory and time constraints. We overcome this by using first principles to determine limits on the mesh of reachable states. We also implement Barycentric Interpolation in order to allow information flow when implementing Value Iteration on dynamical systems models.</p></h4>
+    <p><br></p>
+    <h4><a href="https://github.com/roman-aguilera/RTOS4ROBOTS"> UCSB Runtime Systems Project: "RTOS4ROBOTS: Hard Real-Time Operating Systems for Robots"</a></h4>
+    <h4><p>This project aims to build end-to-end, hard real-time, control systems (namely agile humanoids) by integrating open-source software tools. The end result was a custom real-time Operating System for robotic control using Xenomai & Ubuntu.</p></h4>
+	<p><br></p>
+    <h4><a href="https://public.tableau.com/app/profile/roman.aguilera/viz/Capstone-SpatialDataAnalysis/ComparisonofPerformanceMetricsvs_BrandingMetrics-States"> COOP Careers: Telecommunications Marketing</a></h4>
+	<h4><p>In this project, I used Tableau to determine high- and low- performing advertisement groups based on spatial data. The metrics analyzed were CVR, CTR, Viewability Rate, Impressions, Conversions, CPC, CPM, CPA, and CPvM.</p></h4> 
+    <p><br></p>
+    <h4><a href="https://public.tableau.com/app/profile/roman.aguilera/viz/Workbook-NYCRestaurantViolations/Dashboard1"> COOP Careers: NYC Restaurant Violations</a></h4>
+	<h4>Data Analytics Dashboards in Tableau for recommended Health Violation Prevention measures. Our team determined the restaurants with highest violation record, and advised better training materials for them to reduce violations.</h4>
+    <p><br></p>
+    <h4>Pixel-RNN (Private Repository)</h4>
+  	<h4>Deep image generation model using PyTorch.</h4>
+	<p><br></p>
+	<h4>URDF Multilink Robot Tool (Private Repository)</h4>
+	<h4>Tool to generate robot model XMLs for physics simulators such as MuJoCo and PyBullet.</h4>    
+
+ 
+  </div>
+
+  <div id="education">
+    <h3>EDUCATION</h3>
+    <h4><p>M.S. Computer Science (2024) — UC Santa Barbara<br>B.S. Electrical Engineering (2017) — UC San Diego</p></h4>
+  </div>
+
+  <div id="aointerest">
+    <h3>AREAS OF INTEREST</h3>
+    <h4><p>Robotic Learning, Manipulation, Locomotion, Humanoids, Real-Time Control, Embedded Systems, AI, Operator Theory</p></h4>
+  </div>
+
+  <!--CONTACT SECTION-->
+  <div id="contact">
+    <h3>CONTACT</h3>
+    <h4> <a onclick="copyEmail()" id="copyEmailLabel"">Email</a></h4>
+    <!--<h4> <span onclick="copyEmail()" style="cursor: pointer; color: #fefbd8; text-decoration: underline;" id="copyEmailLabel"">Email</a></h4>-->
+    <!--<h4><a href="mailto:roman.aguilera.arevalo@gmail.com">Email</a></h4>-->
+    <h4><a href="https://calendly.com/roman-aguilera-arevalo/15-minute-meeting">Book an Appointment</a></h4>
+    <img src="headshot.jpg" alt="Headshot" width="230" height="230">
+
+    <script>
+      function copyEmail() {
+        const email = "roman.aguilera.arevalo@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+          const label = document.getElementById("copyEmailLabel");
+          const original = label.innerText;
+          label.innerText = "Copied to Clipboard";
+          setTimeout(() => label.innerText = original, 1000);
+        });
+      }
+    </script>
+    
+    <p>© 2025 Roman Aguilera</p>
+  </div>
+
+</body>
+</html>
