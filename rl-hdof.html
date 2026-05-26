@@ -361,10 +361,6 @@ We evaluate performance across:
 <section id="results">
 <h2>Preliminary Results</h2>
 
-<video class="hero-video" autoplay muted loop playsinline>
-  <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
-</video>
-
 <p>
 PPO successfully learns stable reaching policies for systems up to <b>32 DOF</b> under constrained goal distributions.
 </p>
@@ -373,9 +369,17 @@ PPO successfully learns stable reaching policies for systems up to <b>32 DOF</b>
 For single-goal and 1D goal distributions, policies produce smooth and repeatable trajectories.
 </div>
 
+<video class="hero-video" autoplay muted loop playsinline>
+  <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
+</video>
+
 <div class="callout">
 When extended to 2D goal distributions, behavior shifts qualitatively toward workspace-wide sweeping motion patterns.
 </div>
+
+<video class="hero-video" autoplay muted loop playsinline>
+  <source src="2d-arm-control-trimmed-3.mov" type="video/mp4">
+</video>
 
 <p>
 At this stage, we interpret this as a potential failure of generalization under goal distribution shift. Further statistical analysis is required to determine whether this arises from trajectory memorization, exploration dynamics, or reward exploitation.
