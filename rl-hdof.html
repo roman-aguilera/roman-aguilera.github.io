@@ -285,6 +285,18 @@ We study this using parameterized N-link manipulators, enabling systematic scali
 </p>
 </section>
 
+<section id="hypothesis">
+<h2>Hypothesis</h2>
+
+<blockquote>
+PPO policies may function as implicit trajectory generators conditioned on goal observations, rather than encoding explicit geometric representations of goal location.
+</blockquote>
+
+<p>
+Under this view, successful control emerges from learned motion patterns aligned with reward structure, rather than symbolic or geometric goal reasoning.
+</p>
+</section>
+
 <section id="results">
 <h2>Preliminary Results</h2>
 
@@ -343,18 +355,6 @@ This makes it difficult to determine whether improvements reflect true generaliz
 <div class="callout">
 This work isolates DOF as a controlled variable in a fixed environment family.
 </div>
-</section>
-
-<section id="hypothesis">
-<h2>Hypothesis</h2>
-
-<blockquote>
-PPO policies may function as implicit trajectory generators conditioned on goal observations, rather than encoding explicit geometric representations of goal location.
-</blockquote>
-
-<p>
-Under this view, successful control emerges from learned motion patterns aligned with reward structure, rather than symbolic or geometric goal reasoning.
-</p>
 </section>
 
 <section id="approach">
