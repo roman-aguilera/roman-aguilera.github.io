@@ -1,1 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RL in High-DOF Robotic Systems</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #070707;
+  --panel: #0f0f0f;
+  --text: #f2f2f2;
+  --muted: #a0a0a0;
+  --accent: #6aa9ff;
+  --border: #1f1f1f;
+  --max: 920px;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --panel: #f6f6f6;
+  --text: #111111;
+  --muted: #555;
+  --accent: #1f5eff;
+  --border: #e5e5e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+/* Layout */
+.container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 3rem 1.5rem;
+  border-right: 1px solid var(--border);
+}
+
+.sidebar h3 {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: var(--muted);
+  margin: 0.6rem 0;
+  font-size: 0.95rem;
+}
+
+.sidebar a:hover {
+  color: var(--accent);
+}
+
+/* Content */
+.content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+header {
+  margin-bottom: 4rem;
+}
+
+header h1 {
+  font-size: 3.1rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.author {
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Sections */
+section {
+  margin: 5rem 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+.callout {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.2rem;
+  margin: 2rem 0;
+}
+
+blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.2rem;
+  margin: 2rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+ul {
+  margin: 1rem 0 1.5rem 1.4rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Toggle */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .content {
+    padding: 3rem 1.5rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <h3>Navigation</h3>
+  <a href="#abstract">Abstract</a>
+  <a href="#background">Background</a>
+  <a href="#motivation">Motivation</a>
+  <a href="#hypothesis">Hypothesis</a>
+  <a href="#approach">Experimental Setup</a>
+  <a href="#results">Preliminary Results</a>
+  <a href="#control">Control Representation</a>
+  <a href="#focus">Current Work</a>
+  <a href="#significance">Significance</a>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+<div class="topbar">
+  <button onclick="toggleTheme()">Toggle Theme</button>
+</div>
+
+<header>
+  <h1>Understanding Reinforcement Learning in High-Degree-of-Freedom Robotic Systems</h1>
+  <div class="subtitle">Research Statement, Experimental Overview, and Progress</div>
+  <div class="author">Roman Aguilera-Arevalo</div>
+</header>
+
+<section id="abstract">
+<h2>Abstract</h2>
+
+<p>
+High-degree-of-freedom robotic systems pose significant challenges for control due to extreme dimensionality, nonlinear dynamics, and sensitivity to perturbations.
+</p>
+
+<p>
+While reinforcement learning (RL), particularly model-free methods such as Proximal Policy Optimization (PPO), has shown empirical success in these regimes, the underlying structure of what is learned remains unclear.
+</p>
+
+<div class="callout">
+This work investigates the hypothesis that PPO-based policies may primarily learn reference trajectory-generating behaviors rather than explicit goal representations in state space.
+</div>
+
+<p>
+We study this using parameterized N-link manipulators, enabling systematic scaling of degrees of freedom while preserving task structure.
+</p>
+</section>
+
+<section id="background">
+<h2>Background</h2>
+
+<p>
+Robotic control in high-dimensional systems is difficult due to nonlinear dynamics, redundancy, and sensitivity to small control perturbations.
+</p>
+
+<p>
+Classical methods such as inverse kinematics, Jacobian-based control, and trajectory optimization scale poorly as DOF increases.
+</p>
+
+<p>
+RL replaces explicit modeling with data-driven optimization, but its internal behavioral structure remains poorly understood.
+</p>
+</section>
+
+<section id="motivation">
+<h2>Motivation</h2>
+
+<p>
+Most RL robotics work evaluates performance across environments rather than isolating how a single system behaves as dimensionality changes.
+</p>
+
+<p>
+This makes it difficult to determine whether improvements reflect true generalization or structural properties of high-dimensional spaces.
+</p>
+
+<div class="callout">
+This work isolates DOF as a controlled variable in a fixed environment family.
+</div>
+</section>
+
+<section id="hypothesis">
+<h2>Hypothesis</h2>
+
+<blockquote>
+PPO policies may function as implicit trajectory generators conditioned on goal observations, rather than encoding explicit geometric representations of goal location.
+</blockquote>
+
+<p>
+Under this view, successful control emerges from learned motion patterns aligned with reward structure, rather than symbolic or geometric goal reasoning.
+</p>
+</section>
+
+<section id="approach">
+<h2>Experimental Setup</h2>
+
+<p>
+We construct a parameterized family of N-link manipulators, allowing systematic variation in DOF while preserving identical task definitions.
+</p>
+
+<div class="callout">
+We evaluate performance across:
+<ul>
+  <li>Number of links (N)</li>
+  <li>Goal distribution structure (point, line, 2D region)</li>
+  <li>Obstacle presence</li>
+  <li>Dynamic complexity</li>
+</ul>
+</div>
+
+<p><b>Tasks:</b></p>
+<ul>
+  <li>Single-point reaching</li>
+  <li>Reach-and-hold</li>
+  <li>Obstacle avoidance</li>
+  <li>Pendulum swing-up</li>
+  <li>Balance stabilization</li>
+</ul>
+
+<p><b>Algorithms:</b> PPO, TRPO, SAC</p>
+
+</section>
+
+<section id="results">
+<h2>Preliminary Results</h2>
+
+<p>
+PPO successfully learns stable reaching policies for systems up to <b>32 DOF</b> under constrained goal distributions.
+</p>
+
+<div class="callout">
+For single-goal and 1D goal distributions, policies produce smooth and repeatable trajectories.
+</div>
+
+<div class="callout">
+When extended to 2D goal distributions, behavior shifts qualitatively toward workspace-wide sweeping motion patterns.
+</div>
+
+<p>
+At this stage, we interpret this as a potential failure of generalization under goal distribution shift. Further statistical analysis is required to determine whether this arises from trajectory memorization, exploration dynamics, or reward exploitation.
+</p>
+</section>
+
+<section id="control">
+<h2>Control Representation</h2>
+
+<p>
+Current experiments use Δθ (joint-angle increment) control rather than torque-level control.
+</p>
+
+<p>
+This is motivated by instability observed in early torque-based experiments, where nonlinear coupling caused rapid divergence before stable learning signals could form.
+</p>
+
+<div class="callout">
+Δθ control is used as an intermediate abstraction to stabilize learning and isolate representational behavior before introducing full dynamics.
+</div>
+
+<p>
+This allows evaluation of spatial learning behavior independently of full dynamic instability.
+</p>
+</section>
+
+<section id="focus">
+<h2>Current Work</h2>
+
+<ul>
+  <li>Trajectory statistics in 2D goal distributions</li>
+  <li>Time-to-solution scaling vs DOF</li>
+  <li>Comparison with RRT planners (up to 18 DOF)</li>
+  <li>Robustness metrics under distribution shift</li>
+  <li>Transition to torque-level RL</li>
+</ul>
+</section>
+
+<section id="significance">
+<h2>Significance</h2>
+
+<p>
+This work aims to understand whether reinforcement learning produces goal-directed reasoning or emergent trajectory-based heuristics in high-dimensional control problems.
+</p>
+
+<p>
+Implications include:
+</p>
+
+<ul>
+  <li>Interpretability of RL policies</li>
+  <li>Benchmark design for high-DOF robotics</li>
+  <li>Understanding scalability limits of policy gradient methods</li>
+</ul>
+
+</section>
+
+</div>
+</div>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  if (root.getAttribute("data-theme") === "light") {
+    root.removeAttribute("data-theme");
+    localStorage.setItem("theme","dark");
+  } else {
+    root.setAttribute("data-theme","light");
+    localStorage.setItem("theme","light");
+  }
+}
+
+window.onload = () => {
+  if (localStorage.getItem("theme") === "light") {
+    document.documentElement.setAttribute("data-theme","light");
+  }
+};
+</script>
+
+</body>
+</html>
