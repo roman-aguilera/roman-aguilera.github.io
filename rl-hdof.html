@@ -77,6 +77,11 @@ body {
   color: var(--accent);
 }
 
+.sidebar a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 /* Content */
 .content {
   max-width: var(--max);
@@ -189,7 +194,10 @@ button:hover {
 </style>
 </head>
 
+
+
 <body>
+
 
 <div class="container">
 
@@ -405,6 +413,35 @@ window.onload = () => {
     document.documentElement.setAttribute("data-theme","light");
   }
 };
+</script>
+
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".sidebar a");
+
+function updateNavHighlight() {
+  let currentSection = "";
+
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+
+    // section currently near top of screen
+    if (top <= 200) {
+      currentSection = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === "#" + currentSection) {
+      link.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateNavHighlight);
+window.addEventListener("load", updateNavHighlight);
 </script>
 
 </body>
