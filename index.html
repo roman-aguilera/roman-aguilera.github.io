@@ -156,12 +156,10 @@
     h1 em {
       font-style: normal;
       color: var(--blue);
-      /* Prevent the typed line from ever wrapping and changing the h1 height */
       display: block;
       min-height: 1.2em;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .hero-sub {
@@ -221,7 +219,6 @@
       border-top: none;
       padding-top: 0;
       padding-bottom: 80px;
-      scroll-margin-top: 72px;
     }
 
     .services-intro {
@@ -416,6 +413,7 @@
       z-index: 1;
       padding: 100px 0;
       border-top: 1px solid rgba(26,107,255,0.1);
+      scroll-margin-top: 72px;
     }
 
     .section-label {
