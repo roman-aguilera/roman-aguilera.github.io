@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,8 +148,8 @@
       color: var(--white);
       max-width: 840px;
       margin-bottom: 28px;
-      /* Reserve two fixed lines so typewriter text never causes layout reflow */
-      min-height: 2.4em;
+      /* Tall enough for 3 lines — absorbs any wrapping without reflowing the page */
+      min-height: 3.6em;
     }
 
     h1 em {
@@ -158,8 +157,6 @@
       color: var(--blue);
       display: block;
       min-height: 1.2em;
-      white-space: nowrap;
-      max-width: 100%;
     }
 
     .hero-sub {
@@ -801,7 +798,7 @@
   <div class="wrap">
     <div class="hero-inner">
       <p class="hero-eyebrow">Robotics · AI · Web Applications</p>
-      <h1 id="hero-headline"><span id="hero-static"></span><br><em id="typewriter-line"></em><span class="cursor" id="type-cursor">|</span></h1>
+      <h1 id="hero-headline"><span id="hero-static"></span><em id="typewriter-line"><span class="cursor" id="type-cursor">|</span></em></h1>
       <p class="hero-sub">Robotics researcher, AI engineer, and full-stack web developer. I help startups, research labs, and companies build sophisticated technical products — robots, AI systems, and the web applications that power them.</p>
       <div class="hero-cta">
         <a href="https://calendly.com/roman-aguilera-arevalo" class="btn-primary">Book a Consultation</a>
@@ -1284,15 +1281,20 @@
   const typedEl   = document.getElementById('typewriter-line');
   const cursorEl  = document.getElementById('type-cursor');
 
+  // Insert a text node BEFORE the cursor inside the em, so we never
+  // overwrite innerHTML and accidentally remove the cursor span.
+  const textNode = document.createTextNode('');
+  typedEl.insertBefore(textNode, cursorEl);
+
   let lineIdx   = 0;
   let charIdx   = 0;
   let deleting  = false;
   let firstRun  = true;
 
-  const TYPE_SPEED   = 52;   // ms per char typing
-  const DELETE_SPEED = 28;   // ms per char deleting
-  const PAUSE_END    = 2200; // ms pause after full line
-  const PAUSE_START  = 320;  // ms pause before typing next
+  const TYPE_SPEED   = 52;
+  const DELETE_SPEED = 28;
+  const PAUSE_END    = 2200;
+  const PAUSE_START  = 320;
 
   function setStatic(text) {
     staticEl.textContent = text;
@@ -1307,24 +1309,20 @@
     }
 
     if (!deleting) {
-      // Typing
-      typedEl.textContent = suffix.slice(0, charIdx + 1);
+      textNode.nodeValue = suffix.slice(0, charIdx + 1);
       charIdx++;
       if (charIdx === suffix.length) {
-        // Finished typing — pause then delete
         deleting = true;
         setTimeout(tick, PAUSE_END);
         return;
       }
       setTimeout(tick, TYPE_SPEED);
     } else {
-      // Deleting
-      typedEl.textContent = suffix.slice(0, charIdx - 1);
+      textNode.nodeValue = suffix.slice(0, charIdx - 1);
       charIdx--;
       if (charIdx === 0) {
         deleting = false;
         lineIdx  = (lineIdx + 1) % lines.length;
-        // Update static prefix for next line
         setStatic(lines[lineIdx][0]);
         setTimeout(tick, PAUSE_START);
         return;
@@ -1333,7 +1331,6 @@
     }
   }
 
-  // Kick off after a short delay so page feels settled
   setTimeout(tick, 800);
 </script>
 
