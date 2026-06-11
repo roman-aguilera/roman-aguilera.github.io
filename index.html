@@ -144,16 +144,24 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(2.8rem, 6vw, 5.2rem);
       font-weight: 700;
-      line-height: 1.08;
+      line-height: 1.2;
       letter-spacing: -0.02em;
       color: var(--white);
       max-width: 840px;
       margin-bottom: 28px;
+      /* Reserve two fixed lines so typewriter text never causes layout reflow */
+      min-height: 2.4em;
     }
 
     h1 em {
       font-style: normal;
       color: var(--blue);
+      /* Prevent the typed line from ever wrapping and changing the h1 height */
+      display: block;
+      min-height: 1.2em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .hero-sub {
