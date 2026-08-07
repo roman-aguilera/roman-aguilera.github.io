@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -340,12 +341,6 @@
       transition: background 0.2s;
     }
     .service-tile:hover { background: rgba(26,107,255,0.06); }
-
-    .service-tile .st-icon {
-      font-size: 1.8rem;
-      margin-bottom: 18px;
-      display: block;
-    }
 
     .service-tile h3 {
       font-family: 'Space Grotesk', sans-serif;
@@ -877,7 +872,6 @@
     <a class="nav-logo" href="#">Roman Aguilera</a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#webdev">Web Dev</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Work</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -895,7 +889,6 @@
 <div class="nav-drawer" id="nav-drawer">
   <ul>
     <li><a href="#services"  class="drawer-link">Services</a></li>
-    <li><a href="#webdev"    class="drawer-link">Web Dev</a></li>
     <li><a href="#about"     class="drawer-link">About</a></li>
     <li><a href="#experience"class="drawer-link">Work</a></li>
     <li><a href="#projects"  class="drawer-link">Projects</a></li>
@@ -940,52 +933,95 @@
 <!-- ── SERVICES ── -->
 <section id="services">
   <div class="wrap">
-    <p class="section-label">What I Can Do For You</p>
+    <p class="section-label">What I Do</p>
     <div class="services-intro">
-      <h2>Pick your problem. I'll solve it.</h2>
-      <p>Whether you need a robot that can navigate and adapt, an AI system integrated into your product, or a professional web presence that converts — I bring the same rigorous engineering mindset to all of it.</p>
+      <h2>Robotics, AI, and the software that ties them together.</h2>
+      <p>I bring the same rigorous engineering mindset to a robot that needs to navigate and adapt, an AI system integrated into your product, or a professional web presence that converts.</p>
     </div>
     <div class="services-grid">
 
       <div class="service-tile">
-        <span class="st-icon">🤖</span>
-        <h3>Robotics Engineering &amp; Research</h3>
-        <p>Design, simulate, and deploy intelligent robot control systems. From initial algorithm research to physical hardware integration.</p>
+        <h3>Robot Learning &amp; Control</h3>
+        <p>Reinforcement learning applied to multi-DOF arms, locomotion, and manipulation, built and validated in custom simulation environments.</p>
         <ul>
-          <li>Reinforcement learning for robot control</li>
+          <li>RL algorithm design &amp; evaluation</li>
           <li>Custom simulation environments</li>
-          <li>Multi-DOF arm &amp; locomotion systems</li>
-          <li>Real-time OS &amp; embedded control</li>
-          <li>Computer vision for field robots</li>
+          <li>Robot model generation</li>
+          <li>Multi-DOF arm &amp; locomotion control</li>
         </ul>
       </div>
 
       <div class="service-tile">
-        <span class="st-icon">🧠</span>
-        <h3>AI &amp; Machine Learning Systems</h3>
-        <p>Build and integrate AI into your product — from prototype to production. Research-backed engineering that ships.</p>
+        <h3>Computer Vision</h3>
+        <p>End-to-end vision pipelines from camera hardware to detection algorithms, including field-deployed systems.</p>
+        <ul>
+          <li>Object &amp; feature detection pipelines</li>
+          <li>Field robot deployments (mapping, counting)</li>
+          <li>Camera hardware integration</li>
+        </ul>
+      </div>
+
+      <div class="service-tile">
+        <h3>Real-Time &amp; Embedded Systems</h3>
+        <p>Hard real-time OS design and low-level firmware for robotic control hardware.</p>
+        <ul>
+          <li>Real-time OS design</li>
+          <li>Embedded firmware development</li>
+          <li>Sensor integration &amp; custom hardware</li>
+        </ul>
+      </div>
+
+      <div class="service-tile">
+        <h3>AI &amp; Machine Learning</h3>
+        <p>Applied ML engineering from research to production, built to integrate cleanly into a real product.</p>
         <ul>
           <li>LLM-powered enterprise applications</li>
           <li>Deep learning model development</li>
-          <li>RL algorithm design &amp; evaluation</li>
-          <li>AI feature engineering &amp; integration</li>
           <li>ML pipeline architecture</li>
+          <li>AI feature engineering &amp; integration</li>
         </ul>
       </div>
 
       <div class="service-tile">
-        <span class="st-icon">🌐</span>
-        <h3>Web Development &amp; AI Apps</h3>
-        <p>Professional websites, data dashboards, and AI-powered web applications — built clean, fast, and designed to convert.</p>
+        <h3>Simulation, Modeling &amp; Analytics</h3>
+        <p>Custom physics simulation and data tooling for problems too large or too complex for off-the-shelf solutions.</p>
+        <ul>
+          <li>High-dimensional state-space modeling</li>
+          <li>Custom physics simulation tools</li>
+          <li>Spatial data analysis &amp; dashboards</li>
+        </ul>
+      </div>
+
+      <div class="service-tile">
+        <h3>Web &amp; Full-Stack Development</h3>
+        <p>Professional websites and AI-powered web applications, built clean and fast — no templates, no page builders.</p>
         <ul>
           <li>Portfolio &amp; professional sites</li>
           <li>AI-integrated web apps</li>
           <li>Interactive data dashboards</li>
-          <li>Full-stack application development</li>
-          <li>Technical landing pages</li>
+          <li>Backend, APIs &amp; database design</li>
         </ul>
       </div>
 
+    </div>
+
+    <div class="tech-stack">
+      <span class="tech-pill">HTML / CSS / JS</span>
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">Python</span>
+      <span class="tech-pill">REST APIs</span>
+      <span class="tech-pill">OpenAI / Anthropic APIs</span>
+      <span class="tech-pill">Tableau</span>
+      <span class="tech-pill">PyTorch</span>
+      <span class="tech-pill">SQL</span>
+      <span class="tech-pill">Git / GitHub</span>
+      <span class="tech-pill">Linux / Bash</span>
+      <span class="tech-pill">C / Embedded Systems</span>
+    </div>
+
+    <div class="live-example-banner">
+      <p><strong>Live example:</strong> You're looking at it. This site was built from scratch — custom canvas animation, responsive layout, and intentional design — all by Roman.</p>
+      <a href="https://cal.com/roman-aguilera-arevalo" class="btn-primary" style="white-space:nowrap;">Get a Site Like This</a>
     </div>
   </div>
 </section>
@@ -1014,92 +1050,6 @@
           <div class="hc-body">Led development of enterprise-grade AI-powered web applications using frontier models.</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── EXPERTISE ── -->
-<section id="expertise">
-  <div class="wrap">
-    <p class="section-label">What I Bring</p>
-    <h2>Built for hard problems in robotics and AI</h2>
-    <div class="expertise-grid">
-      <div class="expertise-card">
-        <div class="expertise-icon">🤖</div>
-        <h3>Robot Learning &amp; Control</h3>
-        <p>Deep experience with reinforcement learning applied to multi-link arms, locomotion, and manipulation. Custom simulation environments with OpenAI Gym, MuJoCo, and PyBullet.</p>
-      </div>
-      <div class="expertise-card">
-        <div class="expertise-icon">👁️</div>
-        <h3>Computer Vision Systems</h3>
-        <p>End-to-end vision pipelines from camera hardware to detection algorithms. Real deployments on field robots doing GPS mapping and automated crop counting.</p>
-      </div>
-      <div class="expertise-card">
-        <div class="expertise-icon">⚡</div>
-        <h3>Real-Time &amp; Embedded Systems</h3>
-        <p>Hard real-time OS design with Xenomai & Ubuntu for robotic control. Low-level firmware in C, sensor integration, and custom PCB wiring for prototype hardware.</p>
-      </div>
-      <div class="expertise-card">
-        <div class="expertise-icon">🧠</div>
-        <h3>AI &amp; Machine Learning</h3>
-        <p>Applied ML engineering from research to production — deep learning (PyTorch), enterprise LLM-powered applications, and novel algorithm development.</p>
-      </div>
-      <div class="expertise-card">
-        <div class="expertise-icon">📐</div>
-        <h3>Simulation &amp; Modeling</h3>
-        <p>Custom physics simulation tools, URDF robot generation, and value iteration with Barycentric interpolation for tractable high-dimensional state spaces.</p>
-      </div>
-      <div class="expertise-card">
-        <div class="expertise-icon">📊</div>
-        <h3>Data &amp; Analytics</h3>
-        <p>Spatial data analysis and visualization with Tableau. Experience turning complex datasets into actionable insights for both technical and business stakeholders.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── WEB DEVELOPMENT ── -->
-<section id="webdev">
-  <div class="wrap">
-    <p class="section-label">Web Development</p>
-    <h2>Professional websites &amp; AI-powered web apps</h2>
-
-    <div class="webdev-grid">
-      <div class="webdev-feature">
-        <h3>🖥️ Portfolio &amp; Professional Sites</h3>
-        <p>Clean, modern websites that make a strong first impression — like this one. Custom-designed to reflect your expertise, built to load fast, and structured to convert visitors into clients. No templates, no page builders.</p>
-      </div>
-      <div class="webdev-feature">
-        <h3>⚡ AI-Powered Web Applications</h3>
-        <p>End-to-end web apps with AI at the core — LLM integrations, intelligent interfaces, and data-driven features. Proven through enterprise-grade AI product delivery at PivotalVC.</p>
-      </div>
-      <div class="webdev-feature">
-        <h3>📊 Interactive Data Dashboards</h3>
-        <p>Turn raw data into clear, interactive visualizations. Built with Tableau, D3, or custom web tooling — whether for internal reporting or client-facing analytics products.</p>
-      </div>
-      <div class="webdev-feature">
-        <h3>🔧 Full-Stack Engineering</h3>
-        <p>Backend logic, APIs, database design, and front-end polish. Comfortable across the entire stack — so your project doesn't get blocked waiting on a handoff between specialists.</p>
-      </div>
-    </div>
-
-    <div class="tech-stack">
-      <span class="tech-pill">HTML / CSS / JS</span>
-      <span class="tech-pill">React</span>
-      <span class="tech-pill">Python</span>
-      <span class="tech-pill">REST APIs</span>
-      <span class="tech-pill">OpenAI / Anthropic APIs</span>
-      <span class="tech-pill">Tableau</span>
-      <span class="tech-pill">PyTorch</span>
-      <span class="tech-pill">SQL</span>
-      <span class="tech-pill">Git / GitHub</span>
-      <span class="tech-pill">Linux / Bash</span>
-      <span class="tech-pill">C / Embedded Systems</span>
-    </div>
-
-    <div class="live-example-banner">
-      <p><strong>Live example:</strong> You're looking at it. This site was built from scratch — custom canvas animation, responsive layout, and intentional design — all by Roman.</p>
-      <a href="https://cal.com/roman-aguilera-arevalo" class="btn-primary" style="white-space:nowrap;">Get a Site Like This</a>
     </div>
   </div>
 </section>
@@ -1266,7 +1216,7 @@
     <div class="contact-inner">
       <div class="contact-text">
         <p class="section-label">Contact</p>
-        <h2>Let's build something worth building.</h2>
+        <h2>Get in touch.</h2>
         <p>Whether you're prototyping a robot, integrating AI into your product, or need a professional website — get in touch. Available for consulting, contract engineering, web development, and research collaboration.</p>
         <div class="contact-links">
           <a href="https://cal.com/roman-aguilera-arevalo" class="btn-primary">Book an Appointment</a>
