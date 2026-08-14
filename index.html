@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -610,15 +609,42 @@
     }
 
     /* ── EXPERIENCE ── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
     .exp-item {
       display: grid;
       grid-template-columns: 280px 1fr;
       gap: 48px;
-      padding: 52px 0;
-      border-bottom: 1px solid rgba(26,107,255,0.08);
       align-items: start;
+      background: var(--navy-mid);
+      border: 1px solid rgba(26,107,255,0.1);
+      border-radius: 10px;
+      padding: 36px;
     }
-    .exp-item:last-child { border-bottom: none; }
+
+    /* Clickable experience cards get a pointer, lift, and glow on hover/focus,
+       matching the affordance already used by project-card / expertise-card. */
+    a.exp-item {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: border-color 0.25s, transform 0.2s, background 0.2s, box-shadow 0.25s;
+    }
+    a.exp-item:hover,
+    a.exp-item:focus-visible {
+      border-color: rgba(26,107,255,0.45);
+      background: rgba(26,107,255,0.055);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(5,10,31,0.35);
+    }
+    a.exp-item:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
 
     .exp-media video,
     .exp-media img {
@@ -650,12 +676,11 @@
       line-height: 1.3;
     }
 
-    .exp-meta h3 a {
-      color: var(--white);
-      text-decoration: none;
-      transition: color 0.2s;
+    /* Title still turns blue on hover, even though the whole card is now the link */
+    a.exp-item:hover .exp-meta h3,
+    a.exp-item:focus-visible .exp-meta h3 {
+      color: var(--blue);
     }
-    .exp-meta h3 a:hover { color: var(--blue); }
 
     .exp-meta .org {
       font-size: 0.78rem;
@@ -668,6 +693,36 @@
       font-size: 0.9rem;
       color: var(--steel);
       line-height: 1.75;
+    }
+
+    /* Subtle "view more" invite, sits quiet until the card is hovered/focused */
+    .exp-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      opacity: 0.6;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+    .exp-cta svg {
+      width: 13px;
+      height: 13px;
+      transition: transform 0.2s;
+    }
+    a.exp-item:hover .exp-cta,
+    a.exp-item:focus-visible .exp-cta {
+      opacity: 1;
+      gap: 10px;
+    }
+    a.exp-item:hover .exp-cta svg,
+    a.exp-item:focus-visible .exp-cta svg {
+      transform: translateX(2px);
     }
 
     /* ── PROJECTS ── */
@@ -843,7 +898,7 @@
       .webdev-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .expertise-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 24px; }
+      .exp-item { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
       .projects-grid { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; }
       .contact-photo { display: none; }
@@ -1075,65 +1130,78 @@
     <p class="section-label">Experience</p>
     <h2>A track record across research, startups, and industry</h2>
 
-    <!-- PivotalVC -->
-    <div class="exp-item">
-      <div class="exp-media">
-        <div style="background: var(--navy-mid); border: 1px solid rgba(26,107,255,0.15); border-radius: 8px; padding: 32px; text-align: center;">
-          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--blue);">AI / ML</div>
-          <div style="font-size: 0.75rem; color: var(--steel); margin-top: 8px; letter-spacing: 0.1em; text-transform: uppercase;">Engineering Lead</div>
+    <div class="exp-list">
+
+      <!-- PivotalVC (no external link — plain card, not interactive) -->
+      <div class="exp-item">
+        <div class="exp-media">
+          <div style="background: var(--navy-mid); border: 1px solid rgba(26,107,255,0.15); border-radius: 8px; padding: 32px; text-align: center;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--blue);">AI / ML</div>
+            <div style="font-size: 0.75rem; color: var(--steel); margin-top: 8px; letter-spacing: 0.1em; text-transform: uppercase;">Engineering Lead</div>
+          </div>
+        </div>
+        <div class="exp-meta">
+          <span class="tag">Industry</span>
+          <h3>PivotalVC — AI &amp; ML Engineering Lead</h3>
+          <p class="org">VC-Backed Product Company</p>
+          <p>Led architecture and delivery of AI- and ML-powered web applications, integrating frontier models into enterprise-grade production systems. Responsible for technical strategy, model selection, and end-to-end engineering across the AI stack.</p>
         </div>
       </div>
-      <div class="exp-meta">
-        <span class="tag">Industry</span>
-        <h3><a href="https://pivotalvc.com/">PivotalVC — AI &amp; ML Engineering Lead</a></h3>
-        <p class="org">VC-Backed Product Company</p>
-        <p>Led architecture and delivery of AI- and ML-powered web applications, integrating frontier models into enterprise-grade production systems. Responsible for technical strategy, model selection, and end-to-end engineering across the AI stack.</p>
-      </div>
-    </div>
 
-    <!-- UCSB -->
-    <div class="exp-item">
-      <div class="exp-media">
-        <video autoplay playsinline muted loop>
-          <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="exp-meta">
-        <span class="tag">Research · 6 Years</span>
-        <h3><a href="https://roman-aguilera.github.io/rl-hdof.html">UCSB Dynamic Robotics Lab — AI Robotics Researcher</a></h3>
-        <p class="org">University of California, Santa Barbara</p>
-        <p>Investigated how reinforcement learning algorithm performance degrades as robot complexity scales. Built custom N-link simulation environments in OpenAI Gym to isolate the effects of link count, task complexity, and environment difficulty. Discovered evidence suggesting PPO learns motion primitives rather than goal-directed behavior — a finding with practical implications for robot controller design. Awarded the Google-CAHSI Dissertation Fellowship in 2023.</p>
-      </div>
-    </div>
+      <!-- UCSB -->
+      <a class="exp-item" href="https://roman-aguilera.github.io/rl-hdof.html">
+        <div class="exp-media">
+          <video autoplay playsinline muted loop>
+            <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="exp-meta">
+          <span class="tag">Research · 6 Years</span>
+          <h3>UCSB Dynamic Robotics Lab — AI Robotics Researcher</h3>
+          <p class="org">University of California, Santa Barbara</p>
+          <p>Investigated how reinforcement learning algorithm performance degrades as robot complexity scales. Built custom N-link simulation environments in OpenAI Gym to isolate the effects of link count, task complexity, and environment difficulty. Discovered evidence suggesting PPO learns motion primitives rather than goal-directed behavior — a finding with practical implications for robot controller design. Awarded the Google-CAHSI Dissertation Fellowship in 2023.</p>
+          <span class="exp-cta">Read the research
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
 
-    <!-- CV Startup -->
-    <div class="exp-item">
-      <div class="exp-media">
-        <video autoplay playsinline muted loop>
-          <source src="TRIC_Strawberry_Imaging_3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="exp-meta">
-        <span class="tag">Startup · Computer Vision</span>
-        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">Confidential Robotics Startup — Computer Vision Engineer</a></h3>
-        <p class="org">Agricultural Robotics</p>
-        <p>Contributed to and extended a field-deployed vision system mounted on a tractor robot. Automated plant detection using image recognition algorithms to locate strawberry plant center points and log GPS coordinates during treatment passes — enabling precision data collection at scale.</p>
-      </div>
-    </div>
+      <!-- CV Startup -->
+      <a class="exp-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7252724574885171201/">
+        <div class="exp-media">
+          <video autoplay playsinline muted loop>
+            <source src="TRIC_Strawberry_Imaging_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="exp-meta">
+          <span class="tag">Startup · Computer Vision</span>
+          <h3>Confidential Robotics Startup — Computer Vision Engineer</h3>
+          <p class="org">Agricultural Robotics</p>
+          <p>Contributed to and extended a field-deployed vision system mounted on a tractor robot. Automated plant detection using image recognition algorithms to locate strawberry plant center points and log GPS coordinates during treatment passes — enabling precision data collection at scale.</p>
+          <span class="exp-cta">See it in action
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
 
-    <!-- UCSD NIL -->
-    <div class="exp-item">
-      <div class="exp-media">
-        <video autoplay playsinline muted loop>
-          <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="exp-meta">
-        <span class="tag">Research · 2 Years</span>
-        <h3><a href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">UCSD Neural Interaction Lab — Embedded Systems Researcher</a></h3>
-        <p class="org">University of California, San Diego</p>
-        <p>Designed and prototyped a wireless wearable health monitoring device using the PSoC 4 BLE microcontroller — leveraging onboard ADC, op-amps, and BLE transmission to stream epidermal sensor data to mobile and desktop applications. Programmed in C, redesigned electrical circuits, and contributed to research later published in <em>Advanced Materials</em> (2017).</p>
-      </div>
+      <!-- UCSD NIL -->
+      <a class="exp-item" href="Neural Interaction Lab Archives/Poster Presentation PSOC - Roman Aguilera.pdf">
+        <div class="exp-media">
+          <video autoplay playsinline muted loop>
+            <source src="Neural Interaction Lab Archives/Strain Gauge with PSOC BLE Analog (2) trimmed video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="exp-meta">
+          <span class="tag">Research · 2 Years</span>
+          <h3>UCSD Neural Interaction Lab — Embedded Systems Researcher</h3>
+          <p class="org">University of California, San Diego</p>
+          <p>Designed and prototyped a wireless wearable health monitoring device using the PSoC 4 BLE microcontroller — leveraging onboard ADC, op-amps, and BLE transmission to stream epidermal sensor data to mobile and desktop applications. Programmed in C, redesigned electrical circuits, and contributed to research later published in <em>Advanced Materials</em> (2017).</p>
+          <span class="exp-cta">View research poster
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
     </div>
 
   </div>
