@@ -3,7 +3,48 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>RL in High-DOF Robotic Systems</title>
+<title>Understanding Reinforcement Learning in High-DOF Robotic Systems | Roman Aguilera</title>
+<meta name="description" content="Research by Roman Aguilera on how PPO/TRPO/SAC reinforcement learning policies behave as robot degrees of freedom scale — testing whether RL learns goal-directed reasoning or trajectory heuristics in N-link manipulators up to 32 DOF.">
+<meta name="keywords" content="reinforcement learning, PPO, TRPO, SAC, robot learning, high-DOF robotics, N-link manipulator, robot control, RL research, roman aguilera">
+<meta name="author" content="Roman Aguilera-Arevalo">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://roman-aguilera.github.io/rl-hdof.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+
+<meta property="og:title" content="Understanding Reinforcement Learning in High-DOF Robotic Systems">
+<meta property="og:description" content="Does PPO learn goal-directed reasoning or trajectory heuristics? Research on reinforcement learning policies in high-degree-of-freedom N-link robotic manipulators.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://roman-aguilera.github.io/rl-hdof.html">
+<meta property="og:site_name" content="Roman Aguilera-Arevalo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Understanding Reinforcement Learning in High-DOF Robotic Systems">
+<meta name="twitter:description" content="Research on reinforcement learning policies in high-degree-of-freedom N-link robotic manipulators.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Understanding Reinforcement Learning in High-Degree-of-Freedom Robotic Systems",
+  "description": "Research investigating whether PPO-based reinforcement learning policies learn explicit goal-directed reasoning or reference-trajectory heuristics in high-DOF N-link robotic manipulators.",
+  "url": "https://roman-aguilera.github.io/rl-hdof.html",
+  "author": {
+    "@type": "Person",
+    "name": "Roman Aguilera-Arevalo",
+    "url": "https://roman-aguilera.github.io/",
+    "sameAs": [
+      "https://linkedin.com/in/romanaguilera",
+      "https://github.com/roman-aguilera",
+      "https://scholar.google.com/citations?user=DS1I_BUAAAAJ"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Roman Aguilera-Arevalo"
+  },
+  "keywords": "reinforcement learning, PPO, TRPO, SAC, robot learning, high-DOF robotics, N-link manipulator",
+  "about": ["Reinforcement Learning", "Robotics", "Robot Control"]
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -57,11 +98,13 @@ body {
   border-right: 1px solid var(--border);
 }
 
-.sidebar h3 {
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
+.sidebar .brand {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+  text-decoration: none;
   margin-bottom: 1.2rem;
 }
 
@@ -223,7 +266,7 @@ button:hover {
 
 <!-- Sidebar -->
 <div class="sidebar">
-  <h3>Understanding Reinforcement Learning in <p></p> High-Degree-of-Freedom Robotic Systems</h3>
+  <a class="brand" href="https://roman-aguilera.github.io/">Understanding Reinforcement Learning in<br>High-Degree-of-Freedom Robotic Systems</a>
 
   <nav class="menu top-menu">
   <ul>
@@ -263,7 +306,7 @@ button:hover {
 
 <header>
 
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video class="hero-video" autoplay muted loop playsinline aria-label="Reinforcement learning policy controlling a simulated multi-link robotic arm">
     <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
   </video>
 
@@ -276,7 +319,7 @@ button:hover {
   </div>
 
   <div class="author">
-    Roman Aguilera-Arevalo
+    By <a href="https://roman-aguilera.github.io/" style="color: inherit;">Roman Aguilera-Arevalo</a> — Reinforcement Learning Researcher
   </div>
   
 
@@ -341,7 +384,7 @@ Implications include:
 PPO successfully learns stable reaching policies for systems up to <b>32 DOF</b> under constrained goal distributions. It could be <b>possible for higer-DOF systems</b> to learn stable reaching policies, but the simulator had functional limitations at the time.
 </p>
 
-<video class="hero-video" autoplay muted loop playsinline>
+<video class="hero-video" autoplay muted loop playsinline aria-label="Trained PPO policy performing single-goal reaching on an N-link manipulator">
   <source src="Mulitlink_Policy_2.mp4" type="video/mp4">
 </video>
 
@@ -349,7 +392,7 @@ PPO successfully learns stable reaching policies for systems up to <b>32 DOF</b>
 For single-goal and 1D goal distributions, policies produce smooth and repeatable trajectories.
 </div>
 
-<video class="hero-video" autoplay muted loop playsinline>
+<video class="hero-video" autoplay muted loop playsinline aria-label="Trained PPO policy performing 2D-region reaching, showing workspace-wide sweeping motion">
   <source src="2d-arm-control-trimmed-3.mov" type="video/mp4">
 </video>
 
