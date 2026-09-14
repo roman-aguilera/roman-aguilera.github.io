@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worthy Athletics — Cheer, Dance &amp; Tumbling in Santa Maria, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E1132;
+    --ink-soft:#3A2456;
+    --paper:#FAF8FC;
+    --paper-dim:#F1EAF8;
+    --raspberry:#FF3D68;
+    --raspberry-dark:#D91F4D;
+    --violet:#5B2C82;
+    --gold:#FFC22E;
+    --line: rgba(30,17,50,0.12);
+    --max: 1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    line-height:0.95;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
+
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:2px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 28px;
+    max-width:var(--max); margin:0 auto;
+    gap:20px;
+  }
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brand img{height:44px; width:44px; border-radius:50%; object-fit:cover;}
+  .brand span{font-family:'Anton', sans-serif; font-size:1.25rem; letter-spacing:0.02em;}
+  nav.main-links{display:flex; gap:26px; flex-wrap:wrap;}
+  nav.main-links a{
+    text-decoration:none; font-weight:600; font-size:0.92rem;
+    color:var(--ink-soft);
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+  nav.main-links a:hover{ color:var(--raspberry-dark); border-color:var(--raspberry); }
+  .nav-cta{
+    background:var(--raspberry); color:white; text-decoration:none;
+    font-weight:700; font-size:0.9rem; padding:10px 18px; border-radius:2px;
+    white-space:nowrap;
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .nav-cta:hover{ transform:translate(-2px,-2px); }
+
+  .menu-toggle{
+    display:none;
+    background:none; border:2px solid var(--ink); border-radius:2px;
+    width:44px; height:40px;
+    cursor:pointer;
+    padding:0;
+    flex-shrink:0;
+    position:relative;
+  }
+  .menu-toggle span{
+    position:absolute; left:9px; right:9px; height:2px; background:var(--ink);
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  .menu-toggle span:nth-child(1){ top:13px; }
+  .menu-toggle span:nth-child(2){ top:19px; }
+  .menu-toggle span:nth-child(3){ top:25px; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+    padding:88px 0 110px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-20%; right:-10%;
+    width:70%; height:150%;
+    background:var(--violet);
+    clip-path:polygon(38% 0, 100% 0, 78% 100%, 12% 100%);
+    opacity:0.9;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-20%; right:-22%;
+    width:55%; height:150%;
+    background:var(--raspberry);
+    clip-path:polygon(38% 0, 100% 0, 78% 100%, 12% 100%);
+    opacity:0.85;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 28px; }
+  .eyebrow-tag{
+    display:inline-block;
+    background:var(--gold); color:var(--ink);
+    font-weight:800; font-size:0.85rem;
+    padding:6px 14px; margin-bottom:22px;
+    transform:rotate(-2deg);
+  }
+  .hero h1{
+    font-size:clamp(3rem, 9vw, 6.4rem);
+    max-width:11ch;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+  .hero p.lede{
+    max-width:46ch;
+    font-size:1.15rem;
+    margin-top:22px;
+    color:#EADFF6;
+  }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-top:36px; }
+  .btn{
+    display:inline-block;
+    font-weight:700; text-decoration:none;
+    padding:14px 26px;
+    border-radius:2px;
+    font-size:0.98rem;
+  }
+  .btn-primary{ background:var(--raspberry); color:white; box-shadow:4px 4px 0 var(--gold); }
+  .btn-primary:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--gold); }
+  .btn-ghost{ background:transparent; color:var(--paper); border:2px solid var(--paper); }
+  .btn-ghost:hover{ background:var(--paper); color:var(--ink); }
+  .btn{ transition:all 0.15s ease; }
+
+  /* ---------- Section shared ---------- */
+  section{ padding:88px 0; }
+  .section-head{ max-width:56ch; margin-bottom:48px; }
+  .kicker{
+    font-weight:700; color:var(--raspberry-dark); font-size:0.9rem;
+    margin-bottom:10px; display:block;
+  }
+  .section-head h2{ font-size:clamp(2.1rem, 4.5vw, 3rem); color:var(--ink); }
+  .section-head p{ margin-top:16px; font-size:1.08rem; color:var(--ink-soft); max-width:52ch; }
+
+  /* ---------- About ---------- */
+  .about{ background:var(--paper); }
+  .about-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .about-copy p{ font-size:1.08rem; color:var(--ink-soft); }
+  .about-copy .tagline{
+    font-family:'Anton', sans-serif; font-size:1.6rem; color:var(--violet);
+    margin-bottom:16px; line-height:1.1;
+  }
+  .about-photo{ position:relative; }
+  .about-photo img{
+    width:100%; aspect-ratio:4/3; object-fit:cover;
+    border:6px solid var(--ink);
+  }
+  .about-photo .stamp{
+    position:absolute; bottom:-18px; left:-18px;
+    background:var(--gold); color:var(--ink);
+    font-family:'Anton',sans-serif; font-size:1.05rem;
+    padding:12px 18px; transform:rotate(-3deg);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+
+  /* ---------- Programs ---------- */
+  .programs{ background:var(--ink); color:var(--paper); }
+  .programs .kicker{ color:var(--gold); }
+  .programs .section-head h2{ color:var(--paper); }
+  .programs .section-head p{ color:#D8CBEA; }
+
+  .tier{ margin-top:52px; }
+  .tier:first-of-type{ margin-top:0; }
+  .tier-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:22px;
+    border-bottom:2px solid rgba(250,248,252,0.2); padding-bottom:12px;
+  }
+  .tier-head h3{ font-size:1.5rem; color:var(--gold); white-space:nowrap; }
+  .tier-head .tier-note{ color:#C9B8E0; font-size:0.95rem; }
+
+  .class-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
+  }
+  .class-card{
+    background:rgba(250,248,252,0.06);
+    border:1px solid rgba(250,248,252,0.16);
+    padding:22px 20px;
+    position:relative;
+  }
+  .class-card h4{
+    font-family:'Anton', sans-serif; font-weight:400; font-size:1.15rem;
+    margin-bottom:8px; color:var(--paper);
+  }
+  .class-card p{ color:#CBBEDF; font-size:0.95rem; margin:0 0 14px; }
+  .class-card a{
+    color:var(--gold); text-decoration:none; font-weight:700; font-size:0.88rem;
+    border-bottom:1px solid var(--gold);
+  }
+  .class-card a:hover{ color:var(--paper); border-color:var(--paper); }
+
+  /* ---------- Teams ---------- */
+  .teams{ background:var(--paper-dim); }
+  .team-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
+  }
+  .team-card{ background:var(--paper); border:1px solid var(--line); }
+  .team-card img{ width:100%; aspect-ratio:4/3; object-fit:cover; }
+  .team-card .team-label{
+    padding:16px 18px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .team-card h4{ font-family:'Anton', sans-serif; font-weight:400; font-size:1.15rem; }
+  .team-card .season-badge{
+    background:var(--violet); color:white; font-size:0.75rem; font-weight:700;
+    padding:4px 10px; border-radius:2px;
+  }
+
+  /* ---------- Shop ---------- */
+  .shop{ background:var(--ink); color:var(--paper); }
+  .shop .kicker{ color:var(--gold); }
+  .shop .section-head h2{ color:var(--paper); }
+  .shop .section-head p{ color:#D8CBEA; }
+  .shop .section-head{ display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; max-width:none; }
+  .shop .section-head .heading-block{ max-width:52ch; }
+  .shop-link-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    text-decoration:none; font-weight:700; color:var(--ink);
+    background:var(--gold);
+    padding:12px 22px; border-radius:2px; white-space:nowrap;
+    box-shadow:3px 3px 0 var(--raspberry);
+  }
+  .shop-link-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--raspberry); }
+  .shop-widget{
+    min-height:280px;
+    border:2px dashed rgba(250,248,252,0.28);
+    background:rgba(250,248,252,0.05);
+    display:flex; align-items:center; justify-content:center;
+    padding:40px;
+    margin-top:36px;
+  }
+  .shop-widget-placeholder{ text-align:center; max-width:46ch; }
+  .shop-widget-placeholder h4{
+    font-family:'Anton', sans-serif; font-weight:400; font-size:1.3rem; color:var(--paper);
+    margin-bottom:10px;
+  }
+  .shop-widget-placeholder p{ color:#C9B8E0; font-size:0.98rem; margin:0; }
+
+  .product-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;
+    margin-top:36px;
+  }
+  .product-card{
+    background:rgba(250,248,252,0.06);
+    border:1px solid rgba(250,248,252,0.16);
+    display:flex; flex-direction:column;
+    text-decoration:none; color:var(--paper);
+    transition:border-color 0.15s ease;
+  }
+  .product-card:hover{ border-color:var(--gold); }
+  .product-photo{ position:relative; aspect-ratio:1/1; overflow:hidden; background:#241536; }
+  .product-photo img{ width:100%; height:100%; object-fit:cover; }
+  .product-badge{
+    position:absolute; top:12px; left:12px;
+    background:var(--gold); color:var(--ink);
+    font-size:0.7rem; font-weight:800; letter-spacing:0.03em;
+    padding:4px 10px; border-radius:2px;
+  }
+  .product-badge.fundraiser{ background:var(--raspberry); color:white; }
+  .product-info{ padding:16px 18px 20px; }
+  .product-info h4{
+    font-family:'Anton', sans-serif; font-weight:400; font-size:1.02rem;
+    margin-bottom:6px;
+  }
+  .product-info .product-price{ color:var(--gold); font-weight:700; font-size:0.98rem; }
+  .product-info .product-note{ display:block; margin-top:6px; font-size:0.82rem; color:#C9B8E0; }
+
+  /* ---------- Instagram feed ---------- */
+  .ig-feed{ background:var(--paper); }
+  .ig-feed .section-head{ display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; max-width:none; }
+  .ig-feed .section-head .heading-block{ max-width:52ch; }
+  .ig-handle{
+    display:inline-flex; align-items:center; gap:8px;
+    text-decoration:none; font-weight:700; color:var(--raspberry-dark);
+    border:2px solid var(--raspberry); padding:10px 18px; border-radius:2px;
+    white-space:nowrap;
+  }
+  .ig-handle:hover{ background:var(--raspberry); color:white; }
+  .ig-feed-widget{
+    min-height:280px;
+    border:2px dashed var(--line);
+    background:var(--paper-dim);
+    display:flex; align-items:center; justify-content:center;
+    padding:40px;
+  }
+  .ig-feed-placeholder{ text-align:center; max-width:44ch; }
+  .ig-feed-placeholder h4{
+    font-family:'Anton', sans-serif; font-weight:400; font-size:1.3rem; color:var(--ink);
+    margin-bottom:10px;
+  }
+  .ig-feed-placeholder p{ color:var(--ink-soft); font-size:0.98rem; margin:0; }
+
+  /* ---------- Find us / Map ---------- */
+  .find-us{ background:var(--paper-dim); }
+  .find-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:0;
+    border:1px solid var(--line);
+    background:var(--paper);
+  }
+  .find-info{ padding:44px 40px; }
+  .find-info h3{
+    font-family:'Anton', sans-serif; font-weight:400; font-size:1.6rem;
+    margin-bottom:18px; color:var(--ink);
+  }
+  .find-info address{ font-style:normal; font-size:1.05rem; color:var(--ink-soft); margin-bottom:22px; line-height:1.6; }
+  .find-info .directions-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--raspberry); color:white; text-decoration:none;
+    font-weight:700; padding:12px 22px; border-radius:2px; font-size:0.95rem;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .find-info .directions-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+  .find-info .hours{ margin-top:28px; padding-top:22px; border-top:1px solid var(--line); }
+  .find-info .hours h4{ font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--raspberry-dark); font-weight:700; margin-bottom:10px; }
+  .find-info .hours p{ font-size:0.92rem; color:var(--ink-soft); margin:0; }
+  .map-embed{ position:relative; min-height:340px; background:var(--paper-dim); }
+  .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+  /* ---------- Staff ---------- */
+  .staff{ background:var(--paper); }
+  .staff-grid{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:28px 20px;
+  }
+  .staff-member{ text-align:center; }
+  .staff-member img{
+    width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:50%;
+    border:4px solid var(--paper-dim);
+    margin-bottom:14px;
+  }
+  .staff-member h4{ font-size:1rem; font-weight:700; margin-bottom:2px; }
+  .staff-member p{ font-size:0.88rem; color:var(--raspberry-dark); font-weight:600; margin:0; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:var(--raspberry);
+    color:white;
+    padding:64px 0;
+  }
+  .cta-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  }
+  .cta-inner h2{ font-size:clamp(1.8rem, 4vw, 2.6rem); max-width:14ch; }
+  .cta-inner .btn-primary{ background:var(--ink); box-shadow:4px 4px 0 var(--gold); }
+
+  /* ---------- Contact / Footer ---------- */
+  footer.site{ background:var(--ink); color:var(--paper); padding:72px 0 32px; }
+  .footer-grid{
+    display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:48px;
+    padding-bottom:48px; border-bottom:1px solid rgba(250,248,252,0.16);
+  }
+  .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .footer-brand img{ height:46px; width:46px; border-radius:50%; object-fit:cover; }
+  .footer-brand span{ font-family:'Anton',sans-serif; font-size:1.2rem; }
+  .footer-col h5{
+    font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--gold); margin-bottom:16px; font-weight:700;
+  }
+  .footer-col p, .footer-col address{ font-style:normal; color:#D8CBEA; font-size:0.95rem; margin:0 0 8px; }
+  .footer-col a{ color:#D8CBEA; text-decoration:none; }
+  .footer-col a:hover{ color:var(--gold); }
+  .social-row{ display:flex; gap:14px; margin-top:16px; }
+  .social-row a{
+    border:1px solid rgba(250,248,252,0.3); border-radius:50%;
+    width:38px; height:38px; display:flex; align-items:center; justify-content:center;
+    font-size:0.8rem; font-weight:700;
+  }
+  .social-row a:hover{ border-color:var(--gold); color:var(--gold); }
+  .footer-bottom{
+    padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.85rem; color:#9C89B8;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px){
+    .about-grid{ grid-template-columns:1fr; }
+    .class-grid{ grid-template-columns:repeat(2,1fr); }
+    .product-grid{ grid-template-columns:repeat(2,1fr); }
+    .team-grid{ grid-template-columns:repeat(2,1fr); }
+    .staff-grid{ grid-template-columns:repeat(3,1fr); }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .find-grid{ grid-template-columns:1fr; }
+    .map-embed{ min-height:280px; }
+  }
+  .mobile-nav{ display:none; }
+
+  @media (max-width: 680px){
+    nav.main-links{ display:none; }
+    .menu-toggle{ display:block; }
+    .mobile-nav{
+      display:flex; flex-direction:column;
+      max-height:0; overflow:hidden;
+      border-top:0 solid var(--line);
+      transition:max-height 0.25s ease;
+    }
+    .mobile-nav.open{
+      max-height:340px;
+      border-top-width:1px;
+    }
+    .mobile-nav a{
+      padding:16px 28px;
+      text-decoration:none; font-weight:600; color:var(--ink-soft);
+      border-bottom:1px solid var(--line);
+    }
+    .mobile-nav a:hover{ color:var(--raspberry-dark); background:var(--paper-dim); }
+    .class-grid{ grid-template-columns:1fr; }
+    .product-grid{ grid-template-columns:repeat(2,1fr); }
+    .team-grid{ grid-template-columns:1fr; }
+    .staff-grid{ grid-template-columns:repeat(2,1fr); }
+    .footer-grid{ grid-template-columns:1fr; gap:32px; }
+    .cta-inner{ flex-direction:column; align-items:flex-start; }
+    .ig-feed .section-head{ flex-direction:column; align-items:flex-start; }
+    .shop .section-head{ flex-direction:column; align-items:flex-start; }
+    section{ padding:64px 0; }
+    .hero{ padding:64px 0 80px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .btn, .nav-cta, nav.main-links a{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-row">
+    <a class="brand" href="#top">
+      <img src="https://static.wixstatic.com/media/39c281_9688857522ca40f39d9cbd1877e1cf77~mv2.png" alt="Worthy Athletics logo">
+      <span>WORTHY ATHLETICS</span>
+    </a>
+    <nav class="main-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#shop">Shop</a>
+      <a href="#teams">Teams</a>
+      <a href="#instagram">Posts</a>
+      <a href="#staff">Staff</a>
+      <a href="#find-us">Find us</a>
+    </nav>
+    <a class="nav-cta" href="#programs">Register now</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#shop">Shop</a>
+    <a href="#teams">Teams</a>
+    <a href="#instagram">Posts</a>
+    <a href="#staff">Staff</a>
+    <a href="#find-us">Find us</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow-tag">Santa Maria, CA · Registration open</span>
+    <h1>YOU'RE <em>WORTH</em> IT.</h1>
+    <p class="lede">Competitive cheer, dance, tumbling, and acro training for every age and every goal — from a first cartwheel to the competition floor.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#programs">See all programs</a>
+      <a class="btn btn-ghost" href="#contact">Visit the gym</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <p class="tagline">Making dreams come true, one skill at a time.</p>
+      <p>Our goal is to encourage and inspire every athlete to grow their physical potential while genuinely enjoying the process. From toddlers taking their first tumbling class to competitive teams traveling for finals, Worthy Athletics brings the right coaches, programs, and facility to meet every athlete where they are.</p>
+      <p>Join us — 'cause we're <strong>WORTH IT</strong>.</p>
+    </div>
+    <div class="about-photo">
+      <img src="https://static.wixstatic.com/media/39c281_9688857522ca40f39d9cbd1877e1cf77~mv2.png" alt="Worthy Athletics gym">
+      <span class="stamp">Est. Santa Maria</span>
+    </div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Something for everyone</span>
+      <h2>Find your program</h2>
+      <p>Twelve ways to train at Worthy Athletics, grouped by where you're starting and where you want to go.</p>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head">
+        <h3>Competitive Teams</h3>
+        <span class="tier-note">For athletes ready to travel and compete</span>
+      </div>
+      <div class="class-grid">
+        <div class="class-card">
+          <h4>AllStar Cheer</h4>
+          <p>Practices 2–3 times a week and travels for competition.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScdhbSOsCWkt35RCKriBi7Y-BDi1c95DtFsm_iv0ue4qbCkUg/viewform" target="_blank" rel="noopener">Join today →</a>
+        </div>
+        <div class="class-card">
+          <h4>Worthy Dance Company</h4>
+          <p>Rehearses 5–6 hours a week; attends one convention and one competition each season.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScPcZm5e4f5gbbZV7vqmW-m3A45sjjED1h_EKBKgc1a2kpdrw/viewform" target="_blank" rel="noopener">Join today →</a>
+        </div>
+        <div class="class-card">
+          <h4>AllStar Rec Cheer</h4>
+          <p>Non-competitive cheer focused on fundamentals, with performances at showcases.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head">
+        <h3>Skills &amp; Training</h3>
+        <span class="tier-note">Build technique in a focused class</span>
+      </div>
+      <div class="class-grid">
+        <div class="class-card">
+          <h4>Tumbling</h4>
+          <p>Walkovers, handsprings, tucks, layouts, and twisting skills.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>Flight School</h4>
+          <p>Flexibility and skill work for stunting and time in the air.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>Acro for Dance</h4>
+          <p>Acrobatics fused with dance technique into one class.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>Cheer Dance</h4>
+          <p>Motion technique, retention, and performance quality.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>Stretch &amp; Conditioning</h4>
+          <p>A class dedicated entirely to stretching and conditioning.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>1-on-1 Privates</h4>
+          <p>Personalized coaching catered to one athlete's goal or skill.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Book a session →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head">
+        <h3>Ages 2+ &amp; Adults</h3>
+        <span class="tier-note">Low-pressure classes for the youngest — and the grown-ups</span>
+      </div>
+      <div class="class-grid">
+        <div class="class-card">
+          <h4>Mommy &amp; Me</h4>
+          <p>A class for parents and their little one, ages 2–3.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>Toddler Tumbling</h4>
+          <p>It's never too early to start — for ages 3–4.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+        <div class="class-card">
+          <h4>Adult Yoga</h4>
+          <p>Something for the adults and parents to stay moving and grooving.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="heading-block">
+        <span class="kicker">Spirit wear &amp; gear</span>
+        <h2>Shop Worthy Athletics</h2>
+        <p>Team apparel, bows, and spirit wear for athletes and families.</p>
+      </div>
+      <a class="shop-link-btn" href="https://worthyathletics21.wixsite.com/worthy-athletics/shop-1" target="_blank" rel="noopener">Current store ↗</a>
+    </div>
+
+    <!--
+      ONLINE STORE — UPGRADE PATH
+      ===================================
+      The four product cards below show the gym's real current catalog, pulled
+      from their Wix store, with "Buy" linking out to that store's checkout —
+      so purchases work today.
+
+      To upgrade this into a fully embedded cart (checkout happens right on this
+      site, no bounce to Wix), swap this section for a live Ecwid widget:
+
+      1. Create a free account at ecwid.com and add these same products (name,
+         price, photos, sizes/variants for apparel).
+      2. Under Settings -> Sales Channels -> Website, connect a payment processor
+         (Stripe, PayPal, or Square).
+      3. Go to Website -> "Add Store to Site" -> "Plain HTML site" and copy the
+         two snippets Ecwid gives you: a <div id="my-store..."></div> placement
+         tag and a <script> tag.
+      4. Replace the <div class="product-grid">...</div> block below with the
+         <div> placement tag. Paste the <script> tag right before the closing
+         </body> tag near the bottom of this file.
+
+      Once connected, products, inventory, and checkout are all managed from the
+      Ecwid dashboard — no further edits to this file are needed when the catalog changes.
+    -->
+    <div class="product-grid">
+      <a class="product-card" href="https://worthyathletics21.wixsite.com/worthy-athletics/product-page/wa-pride-shirt-trevor-project" target="_blank" rel="noopener">
+        <div class="product-photo">
+          <span class="product-badge fundraiser">Fundraiser</span>
+          <img src="https://static.wixstatic.com/media/39c281_4327526bcfd4450488a3fdc44551fa8d~mv2.jpg" alt="WA Pride Shirt - Trevor Project">
+        </div>
+        <div class="product-info">
+          <h4>WA Pride Shirt</h4>
+          <span class="product-price">$50.00</span>
+          <span class="product-note">All proceeds go to the Trevor Project</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://worthyathletics21.wixsite.com/worthy-athletics/product-page/wa-leotard" target="_blank" rel="noopener">
+        <div class="product-photo">
+          <span class="product-badge">Best Seller</span>
+          <img src="https://static.wixstatic.com/media/39c281_92424dde8d09482d88f9b9f40d3270da~mv2.jpg" alt="WA Leotard">
+        </div>
+        <div class="product-info">
+          <h4>WA Leotard</h4>
+          <span class="product-price">$80.00</span>
+          <span class="product-note">Practice wear — up to 3 weeks to receive</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://worthyathletics21.wixsite.com/worthy-athletics/product-page/wa-sweatshirt" target="_blank" rel="noopener">
+        <div class="product-photo">
+          <img src="https://static.wixstatic.com/media/39c281_34ec5c18b2aa4cdab39dad4d83082599~mv2.png" alt="WA Sweatshirt">
+        </div>
+        <div class="product-info">
+          <h4>WA Sweatshirt</h4>
+          <span class="product-price">$65.00</span>
+          <span class="product-note">Hoodie, delivered in class</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://worthyathletics21.wixsite.com/worthy-athletics/product-page/worthy-athletics" target="_blank" rel="noopener">
+        <div class="product-photo">
+          <img src="https://static.wixstatic.com/media/39c281_8c2b1aea693249ef96ce304456a15698~mv2.png" alt="Worthy Athletics practice shirt">
+        </div>
+        <div class="product-info">
+          <h4>Worthy Athletics Tee</h4>
+          <span class="product-price">$40.00</span>
+          <span class="product-note">Practice wear, delivered in class</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="teams" id="teams">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Season 4</span>
+      <h2>Our competitive teams</h2>
+      <p>Worthy Athletics fields multiple AllStar cheer teams each season, training for the competition floor.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://static.wixstatic.com/media/39c281_e0f1668077304fef82b7e3d96818b402~mv2.jpg" alt="Sparklz team photo">
+        <div class="team-label">
+          <h4>Sparklz</h4>
+          <span class="season-badge">Season 4</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="https://static.wixstatic.com/media/39c281_5cf54af65a2842038c26f44e785e33b2~mv2.jpg" alt="Code Red team photo">
+        <div class="team-label">
+          <h4>Code Red</h4>
+          <span class="season-badge">Season 4</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="https://static.wixstatic.com/media/39c281_841234731cce451e88cb5f9c0cd4987d~mv2.png" alt="Diamonds team photo">
+        <div class="team-label">
+          <h4>Diamonds</h4>
+          <span class="season-badge">Season 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ig-feed" id="instagram">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="heading-block">
+        <span class="kicker">Straight from the gym floor</span>
+        <h2>Recent posts</h2>
+      </div>
+      <a class="ig-handle" href="https://www.instagram.com/worthy_athletics" target="_blank" rel="noopener">@worthy_athletics ↗</a>
+    </div>
+
+    <!--
+      INSTAGRAM AUTO-FEED — SETUP INSTRUCTIONS
+      =========================================
+      This container is wired to receive a live, auto-updating Instagram feed widget.
+      To activate it:
+
+      1. Go to sociablekit.com (or snapwidget.com / lightwidget.com / elfsight.com — any
+         Instagram widget provider works the same way) and create a free account.
+      2. Choose "Instagram Feed" -> "Profile Widget" and connect the gym's Instagram
+         Business or Creator account (worthy_athletics must be converted to Business/
+         Creator in the Instagram app first — Meta requires this for any live feed).
+      3. Customize the layout/colors if you like, then copy the embed code they give you.
+         It's usually two pieces: a small <div id="..."></div> and a <script src="..."></script>.
+      4. Delete the placeholder <div class="ig-feed-widget">...</div> block directly below
+         this comment, and paste the provider's embed code in its place.
+
+      That's it — the feed will then update itself automatically every time a new post
+      goes up on Instagram, with no further edits to this file needed.
+    -->
+    <div class="ig-feed-widget" id="instagram-feed-widget">
+      <div class="ig-feed-placeholder">
+        <h4>Live feed goes here</h4>
+        <p>This spot is ready for an auto-updating Instagram feed. See the setup instructions in the page source, or ask Claude to wire it up once the widget provider account is connected.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="staff" id="staff">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The people behind the program</span>
+      <h2>Meet the coaches</h2>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_e27d6d574233479f901ac67f4b18638a~mv2.jpg" alt="Tyler Worth headshot">
+        <h4>Tyler Worth</h4>
+        <p>Owner / Director</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_4f338ed0b4454f2c845fedf2a6397178~mv2.jpeg" alt="Laurin Weizel headshot">
+        <h4>Laurin Weizel</h4>
+        <p>Co-Director</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_0e511f4d6dae4a6697159dd32c2fab53~mv2.jpg" alt="Lyrric Burrgos headshot">
+        <h4>Lyrric Burrgos</h4>
+        <p>Co-Director</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_0da62194e84d41e38c8a57d20f621b48~mv2.jpg" alt="Natalie Baisch headshot">
+        <h4>Natalie Baisch</h4>
+        <p>Head Coach</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_e34bf2c5590f47c39a61a67d0bfd45e1~mv2.jpg" alt="Robert Worth headshot">
+        <h4>Robert Worth</h4>
+        <p>Coach</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_5d6aa88f18ae446a9abf42bc537f5613~mv2.jpg" alt="Rylee Souza headshot">
+        <h4>Rylee Souza</h4>
+        <p>Coach</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_812a62995cd048bd93908bb6eb2bfb19~mv2.jpg" alt="Erika De Leija headshot">
+        <h4>Erika De Leija</h4>
+        <p>Coach</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_7533953aacd14a5e830af2ac13d05c7c~mv2.jpg" alt="Emery LeClair headshot">
+        <h4>Emery LeClair</h4>
+        <p>Coach</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_4053f59881054f97bcf493e87e32d780~mv2.jpg" alt="Katie Costello headshot">
+        <h4>Katie Costello</h4>
+        <p>Coach</p>
+      </div>
+      <div class="staff-member">
+        <img src="https://static.wixstatic.com/media/39c281_1844c0cab4dc45f8aacf1f0f2b094a32~mv2.jpg" alt="Whitney Rey headshot">
+        <h4>Whitney Rey</h4>
+        <p>Coach</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap cta-inner">
+    <h2>Registration is open for Season 4.</h2>
+    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Register a class</a>
+  </div>
+</div>
+
+<section class="find-us" id="find-us">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">124 W. Main St., Santa Maria</span>
+      <h2>Find us</h2>
+      <p>Second floor, right on Main Street. Parking and building entry details below.</p>
+    </div>
+    <div class="find-grid">
+      <div class="find-info">
+        <h3>Worthy Athletics</h3>
+        <address>
+          124 W. Main St., 2nd Floor<br>
+          Santa Maria, CA 93458
+        </address>
+        <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=124+W+Main+St,+Santa+Maria,+CA+93458" target="_blank" rel="noopener">Get directions ↗</a>
+        <div class="hours">
+          <h4>Questions before you visit?</h4>
+          <p><a href="mailto:worthyathletics21@gmail.com">worthyathletics21@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=124+W+Main+St,+Santa+Maria,+CA+93458&output=embed"
+          title="Map showing Worthy Athletics location at 124 W. Main St., Santa Maria, CA"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="https://static.wixstatic.com/media/39c281_9688857522ca40f39d9cbd1877e1cf77~mv2.png" alt="Worthy Athletics logo">
+          <span>WORTHY ATHLETICS</span>
+        </div>
+        <p>Cheer, dance, tumbling, and acro training for ages 2 through adult, based in Santa Maria, CA.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/worthy_athletics" target="_blank" rel="noopener" aria-label="Worthy Athletics on Instagram">IG</a>
+          <a href="https://www.instagram.com/worthyathleticscheer" target="_blank" rel="noopener" aria-label="Worthy Athletics Cheer on Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Visit</h5>
+        <address>
+          124 W. Main St., 2nd Floor<br>
+          Santa Maria, CA 93458
+        </address>
+        <p><a href="mailto:worthyathletics21@gmail.com">worthyathletics21@gmail.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <p><a href="#programs">Programs</a></p>
+        <p><a href="#shop">Shop</a></p>
+        <p><a href="#teams">Competitive teams</a></p>
+        <p><a href="#staff">Coaching staff</a></p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgWAZfKvaVvoKe3Hh_VD55z8w4_W2roEkzSDBP6AbaDiq71A/viewform" target="_blank" rel="noopener">Registration form</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Worthy Athletics. All rights reserved.</span>
+      <span>Santa Maria, California</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mobileNav');
+    if(!toggle || !nav) return;
+
+    function closeMenu(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
+    function openMenu(){
+      nav.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+    }
+
+    toggle.addEventListener('click', function(){
+      var isOpen = nav.classList.contains('open');
+      if(isOpen){ closeMenu(); } else { openMenu(); }
+    });
+
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 680){ closeMenu(); }
+    });
+  })();
+</script>
+</body>
+</html>
