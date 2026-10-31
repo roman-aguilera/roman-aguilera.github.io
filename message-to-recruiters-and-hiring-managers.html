@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Message to Recruiters and Hiring Managers</title>
+<style>
+  :root {
+    --bg: #f5f6fa;
+    --surface: #ffffff;
+    --surface-alt: #fafbfe;
+    --text: #101319;
+    --muted: #5b6172;
+    --border: #e3e5ee;
+    --accent: #4f46e5;
+    --accent-text: #ffffff;
+    --accent-soft: #eef0ff;
+    --shadow: 0 1px 2px rgba(16, 19, 25, .04), 0 12px 32px -12px rgba(16, 19, 25, .14);
+    --radius: 18px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0e13;
+      --surface: #15181f;
+      --surface-alt: #1a1e27;
+      --text: #edeff6;
+      --muted: #a3a9bb;
+      --border: #272c39;
+      --accent: #8b87ff;
+      --accent-text: #0c0e13;
+      --accent-soft: #1e2130;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 16px 40px -16px rgba(0, 0, 0, .7);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 22px 96px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: saturate(180%) blur(12px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .topbar-label {
+    font-size: .78rem;
+    font-weight: 650;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .topbar-link {
+    font-size: .88rem;
+    font-weight: 620;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 7px 14px;
+    border-radius: 999px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .topbar-link:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 72px 0 34px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: clamp(2rem, 5.2vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -.025em;
+    font-weight: 760;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+  .lead {
+    font-size: 1.09rem;
+    color: var(--muted);
+    margin: 0 0 26px;
+    max-width: 66ch;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+  .chip {
+    font-size: .82rem;
+    font-weight: 560;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 6px 13px;
+    border-radius: 999px;
+  }
+
+  /* ---------- Agreement callout ---------- */
+  .callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: linear-gradient(135deg, var(--accent-soft), var(--surface));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+    box-shadow: var(--shadow);
+  }
+  .callout p {
+    margin: 0;
+    font-size: .98rem;
+    max-width: 52ch;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-text);
+    font-weight: 640;
+    font-size: .94rem;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    transition: transform .15s ease, filter .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: 76px; scroll-margin-top: 84px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-size: .8rem;
+    font-weight: 720;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  h2 {
+    font-size: 1.42rem;
+    letter-spacing: -.015em;
+    font-weight: 710;
+    margin: 0;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    box-shadow: var(--shadow);
+  }
+  .card + .card { margin-top: 16px; }
+
+  h3 {
+    font-size: 1.02rem;
+    font-weight: 690;
+    letter-spacing: -.005em;
+    margin: 0 0 12px;
+  }
+  p { margin: 0 0 14px; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 660; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  /* ---------- Rate highlight ---------- */
+  .rate-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+  }
+  .rate-figure { flex: 0 0 auto; }
+  .rate-amount {
+    font-size: clamp(2.4rem, 7vw, 3.3rem);
+    font-weight: 780;
+    letter-spacing: -.035em;
+    line-height: 1;
+    display: block;
+  }
+  .rate-unit {
+    display: block;
+    font-size: .86rem;
+    font-weight: 580;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .rate-detail {
+    flex: 1 1 320px;
+    border-left: 1px solid var(--border);
+    padding-left: 30px;
+  }
+  .rate-detail ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rate-detail li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: .95rem;
+  }
+  .rate-detail li:last-child { margin-bottom: 0; }
+  .rate-detail li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ---------- Grid of policy cards ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 16px;
+  }
+  .grid .card { margin-top: 0; }
+
+  /* ---------- Contact ---------- */
+  .contact-meta {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px 16px;
+  }
+  .meta-key {
+    font-size: .74rem;
+    font-weight: 680;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 70px;
+  }
+  .meta-val {
+    font-size: .95rem;
+    font-weight: 570;
+    word-break: break-word;
+  }
+  .meta-val a { text-decoration: none; }
+  .meta-val a:hover { text-decoration: underline; }
+
+  .sample-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .sample-head h3 { margin: 0; }
+  .copy-btn {
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 630;
+    color: var(--text);
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  .copy-btn:hover { background: var(--accent-soft); color: var(--accent); }
+
+  pre {
+    margin: 0;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .855rem;
+    line-height: 1.72;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text);
+  }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+    font-size: .84rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .hero { padding-top: 52px; }
+    .card, .rate-card { padding: 24px 22px; }
+    .rate-detail {
+      border-left: none;
+      border-top: 1px solid var(--border);
+      padding-left: 0;
+      padding-top: 22px;
+    }
+    .callout { padding: 22px; }
+    .btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-label">Recruitment Policy</span>
+    <a class="topbar-link" href="#contact">Contact &rarr;</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">For Recruiters &amp; Hiring Teams</span>
+    <h1>A Message to Recruiters and Hiring Managers</h1>
+
+    <p class="lead">Thank you for your interest in my work and expertise. I appreciate recruiters and hiring managers who take the time to reach out about opportunities that align with my career goals.</p>
+
+    <div class="chips">
+      <span class="chip">Reinforcement Learning</span>
+      <span class="chip">Robotics</span>
+      <span class="chip">Seven years of doctoral research</span>
+      <span class="chip">$300 / hour</span>
+    </div>
+
+    <div class="callout">
+      <p>To ensure we're a good fit before moving forward, I've outlined my policies for recruitment conversations, interviews, and technical evaluations below.</p>
+      <a class="btn" href="#contact">Agree &amp; get in touch</a>
+    </div>
+  </header>
+
+  <!-- RATE POLICY -->
+  <section id="rate">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Rate Policy</h2>
+    </div>
+
+    <div class="rate-card">
+      <div class="rate-figure">
+        <span class="rate-amount">$300</span>
+        <span class="rate-unit">per hour</span>
+      </div>
+      <div class="rate-detail">
+        <ul>
+          <li>Prorated, billed in 15-minute increments</li>
+          <li>Applies to all interviews, screening calls, and consultations</li>
+          <li>Ensures conversations are serious, intentional, and relevant to my expertise</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <p>Responding to recruiters and participating in hiring processes takes time away from my technical work, personal projects, and independent study. I enjoy discussing opportunities that are a good fit, but I also need to protect the time I dedicate to my work and professional development.</p>
+    </div>
+  </section>
+
+  <!-- HIRING POLICY -->
+  <section id="policy">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Hiring Policy</h2>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Technical Assessments</h3>
+        <p>I prefer evaluation methods that directly reflect the responsibilities of the position. These may include: paid work trials, discussing relevant projects, reviewing research outcomes, and exploring real-world reinforcement learning and robotics problems.</p>
+        <p><strong>I do not complete unpaid take-home assignments, coding bounties, or trial projects.</strong> I also do not participate in unpaid trial periods or work samples intended to establish my qualifications before compensation is offered.</p>
+        <p><strong>I do not participate in traditional coding interviews or assessments focused on LeetCode-style problems, HackerRank challenges, data structures, or general-purpose algorithms.</strong> My graduate education included training in these areas, but my primary specialization and the majority of my research effort have focused on reinforcement learning. Traditional coding assessments are not designed to measure the full range of skills required for reinforcement learning research and engineering. Preparing for these assessments also takes time away from my specialized work. Conversations with colleagues across robotics companies have also reinforced my view that performance on generalized coding assessments does not predict success in a specialized role.</p>
+        <p>If a position primarily requires general-purpose software engineering skills and standardized coding assessments are essential to the hiring process, I completely understand. In that case, we may simply be looking for different things in a candidate.</p>
+      </div>
+
+      <div class="card">
+        <h3>Interviews and Professional Verification</h3>
+        <p><strong>I require compensation for all interview time, including initial screening calls.</strong></p>
+        <p>I am happy to provide appropriate documentation to help verify my background, including letters of work verification and academic transcripts. I can also present my portfolio and demonstrate my work in a presentation format without disclosing proprietary code or sensitive implementation details. Time spent preparing or obtaining additional materials will be billed at my standard rate.</p>
+        <p>You can read my <a href="https://romanaguilera.com/rl-hdof">blog summarizing my PhD research</a>, which provides additional context for my technical background and work. My research involved building a custom robotics reinforcement learning environment from the ground up. At the time, developing and testing this kind of environment without AI code-generation assistance required substantial independent engineering and research effort.</p>
+      </div>
+
+      <div class="card">
+        <h3>Technical Discussions and Intellectual Property</h3>
+        <p>I am happy to discuss my research, technical approach, engineering experience, and the results I have achieved. However, <strong>I do not disclose proprietary implementation details or the specific problem-solving methods that constitute my professional know-how during unpaid conversations.</strong></p>
+        <p>If you would like to explore those details more deeply, I welcome a formal offer and a discussion about the appropriate next steps. I believe there are reasonable ways to evaluate technical expertise while respecting intellectual property and the time invested in developing it.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Contact</h2>
+    </div>
+
+    <div class="card">
+      <p>If you have read and agree to the policies above, please use the following email format when reaching out.</p>
+
+      <div class="contact-meta">
+        <div class="meta-row">
+          <span class="meta-key">Email</span>
+          <span class="meta-val"><a href="mailto:roman.aguilera.arevalo@gmail.com">roman.aguilera.arevalo@gmail.com</a></span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Subject</span>
+          <span class="meta-val">Hiring Inquiry &mdash; [Company Name]</span>
+        </div>
+      </div>
+
+      <div class="sample-head">
+        <h3>Sample Email</h3>
+        <button class="copy-btn" id="copyBtn" type="button">Copy</button>
+      </div>
+
+<pre id="sampleEmail">Hi Roman,
+
+I've read your message in its entirety and understand and agree to your policies.
+https://romanaguilera.com/message-to-recruiters-and-hiring-managers
+
+I'd like to reach out regarding an opportunity that I believe may be a good fit for your background and expertise.
+
+Please let me know how I can arrange payment for [X] amount of your time. I'd also appreciate it if you could share your availability between [start date] and [end date].
+
+Here are the details of the opportunity:
+[Insert opportunity information]
+
+Thank you for your time. I look forward to hearing from you.
+
+Best regards,
+[Your name]</pre>
+    </div>
+  </section>
+
+  <footer>
+    Please read this message in full before reaching out. Inquiries that confirm agreement with the Rate Policy and Hiring Policy above can be sent using the format provided.
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copyBtn');
+    var pre = document.getElementById('sampleEmail');
+    if (!btn || !pre) return;
+
+    btn.addEventListener('click', function () {
+      var text = pre.innerText;
+      var done = function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+      } else {
+        fallback(text, done);
+      }
+    });
+
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+      document.body.removeChild(ta);
+    }
+  })();
+</script>
+
+</body>
+</html>
