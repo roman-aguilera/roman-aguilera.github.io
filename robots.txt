@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://roman-aguilera.github.io/sitemap.xml
+Sitemap: https://romanaguilera.com/sitemap.xml
