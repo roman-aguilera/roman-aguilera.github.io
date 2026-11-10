@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://romanaguilera.com/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>hourly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://romanaguilera.com/rl-hdof</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
